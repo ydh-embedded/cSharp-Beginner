@@ -26,7 +26,7 @@
 # *.md
 
 # ignore all cs files
-*.cs
+# *.cs
 
 # ignore all css files
 *.css
