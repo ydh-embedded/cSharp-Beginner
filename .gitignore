@@ -1,0 +1,96 @@
+# Rider files
+.idea/
+
+# Visual Studio files
+*.suo
+*.user
+*.sln.docstates
+
+
+# ________________________________________________________
+
+# ignore all png files
+# *.png
+
+# ignore all png files
+#*.svg
+
+# ignore all png files
+#*.cd
+
+# ignore all jpeg files
+# *.jpeg
+# *.jpg
+
+# ignore all md files
+# *.md
+
+# ignore all cs files
+# *.cs
+
+# ignore all css files
+# *.css
+
+# ignore all pdf files
+# *.pdf
+
+# ________________________________________________________
+
+# Bin and obj folders
+bin/
+obj/
+
+# old c#Rider Projects
+
+#.gitignore
+
+#!c#Rider/.gitignore
+
+BDT/.idea/**
+Beginner/.idea/**
+Company/.idea/**
+Control/**
+CSS/**
+Delegate/**
+Events/**
+ExtendedInterfaces/**
+Frontend/**
+Güterbahnhof/**
+IEnumerator/**
+Interfaces/**
+LINQ/**
+Logos/**
+LowCode/**
+Math/**
+Method/**
+MyCompany/**
+nUnit/**
+ObjectOrientedProgramming/**
+ObserverPattern/**
+OOP/**
+OOP_Aggegation/**
+OOP_Delegates/**
+OOP_Interfaces/**
+OOP_Interfaces_V02/**
+OOP_LowCode/**
+OOP_ObservePattern/**
+OOP_records/**
+OOP-Abstract/**
+OOP-Collection/**
+OOP-Komposition/**
+OOP-Properties/**
+OOP-Sensors/**
+OOP-UpCast/**
+packages/**
+Palindrome/**
+Ping/**
+Scanner/**
+Switch/**
+System/**
+Test/**
+UnitTesting/**
+
+# Dependency directories
+packages/
+
+# Xunit

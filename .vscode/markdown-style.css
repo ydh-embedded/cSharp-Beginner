@@ -1,0 +1,59 @@
+body {
+    background-color: #2f2f2f;
+}
+
+body {
+    color: #2b2a2a;
+}
+
+::selection {
+    background-color: #444444;
+}
+
+::selection {
+    color: #ffffff;
+}
+
+::-moz-selection {
+    background-color: #333333;
+}
+
+::-moz-selection {
+    color: #666666;
+}
+
+h1 {
+    color: #66d9ef;
+}
+
+h2 {
+    color: #44b78b;
+}
+
+h3 {
+    color: #33cc33;
+}
+
+a {
+    color: #0099ff;
+}
+
+code {
+    background-color: #333333;
+}
+
+code {
+    color: #ffffff;
+}
+
+blockquote {
+    background-color: #333333;
+}
+
+blockquote {
+    color: #666666;
+}
+
+ul {
+    list-style-type: square;
+}

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ_Query", "LINQ_Query\LINQ_Query.csproj", "{5CDF4B95-C3A4-47E3-B2E3-B3F924E86EF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TxT_Query", "TxT_Query\TxT_Query.csproj", "{77DF780E-DF47-4922-864B-A81AC089DFC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enumerator", "Enumerator\Enumerator.csproj", "{3CF15795-0FD9-4EE5-9447-EE5AB76B47D9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5CDF4B95-C3A4-47E3-B2E3-B3F924E86EF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CDF4B95-C3A4-47E3-B2E3-B3F924E86EF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CDF4B95-C3A4-47E3-B2E3-B3F924E86EF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CDF4B95-C3A4-47E3-B2E3-B3F924E86EF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77DF780E-DF47-4922-864B-A81AC089DFC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77DF780E-DF47-4922-864B-A81AC089DFC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77DF780E-DF47-4922-864B-A81AC089DFC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77DF780E-DF47-4922-864B-A81AC089DFC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CF15795-0FD9-4EE5-9447-EE5AB76B47D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CF15795-0FD9-4EE5-9447-EE5AB76B47D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CF15795-0FD9-4EE5-9447-EE5AB76B47D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CF15795-0FD9-4EE5-9447-EE5AB76B47D9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

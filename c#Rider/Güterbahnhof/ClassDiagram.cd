@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Güterbahnhof.Gueterwaggon">
+    <Position X="4.5" Y="4.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Gueterwaggon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Güterbahnhof.Gueterzug">
+    <Position X="0.5" Y="5.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Gueterzug.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Güterbahnhof.Program" Collapsed="true">
+    <Position X="9.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Güterbahnhof.Waggon">
+    <Position X="4.5" Y="1.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Waggon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Güterbahnhof.Zug">
+    <Position X="0.5" Y="1.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIABAIAAgAgAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Zug.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="wagenreihung" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Güterbahnhof.Grafikanzeige" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIIAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Grafikanzeige.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Güterbahnhof.Listenanzeige" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIIAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Listenanzeige.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Güterbahnhof.Rangiergleis" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="3.25" Width="3" />
+    <AssociationLine Name="zugbelegung" Type="Güterbahnhof.Zug" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.5" Y="4.83" />
+        <Point X="4.729" Y="4.83" />
+        <Point X="4.729" Y="3.5" />
+        <Point X="3.5" Y="3.5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AgAAAgAAACABAAAAIAAAICAAAAAAAACAAAAAAAAAIAA=</HashCode>
+      <FileName>Rangiergleis.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="zugbelegung" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Güterbahnhof.IAnzeige">
+    <Position X="13.75" Y="3" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IAnzeige.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Güterbahnhof.IGleis">
+    <Position X="13.75" Y="1.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAIAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IGleis.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
