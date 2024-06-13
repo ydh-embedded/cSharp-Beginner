@@ -23,7 +23,7 @@
 # *.jpg
 
 # ignore all md files
-*.md
+# *.md
 
 # ignore all cs files
 *.cs
