@@ -10,7 +10,7 @@
 # ________________________________________________________
 
 # ignore all png files
-*.png
+# *.png
 
 # ignore all png files
 #*.svg
