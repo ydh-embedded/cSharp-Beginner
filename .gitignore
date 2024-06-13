@@ -29,7 +29,7 @@
 # *.cs
 
 # ignore all css files
-*.css
+# *.css
 
 # ignore all pdf files
 *.pdf
