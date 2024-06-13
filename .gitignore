@@ -19,8 +19,8 @@
 #*.cd
 
 # ignore all jpeg files
-*.jpeg
-*.jpg
+# *.jpeg
+# *.jpg
 
 # ignore all md files
 *.md
