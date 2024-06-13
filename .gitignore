@@ -16,7 +16,7 @@
 *.svg
 
 # ignore all png files
-*.cd
+#*.cd
 
 # ignore all jpeg files
 *.jpeg
