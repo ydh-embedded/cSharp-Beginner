@@ -1,0 +1,63 @@
+﻿``````
+namespace Lamp02;
+using InstanzMethods;
+
+public class InstanzMethode
+{
+    public override string GetName()
+    {
+        return "Glühlampe";
+    }
+}
+
+````csharp
+
+Windows PowerShell
+Copyright (C) Microsoft Corporation. Alle Rechte vorbehalten.
+
+Lernen Sie das neue plattformübergreifende PowerShell kennen – https://aka.ms/pscore6
+
+PS C:\working-directory\c#NET\c#Rider\OOP\Lamp02> tree /F
+Auflistung der Ordnerpfade
+Volumeseriennummer : 96F9-B5D8
+C:.
+│   bug.md
+│   bug02.md
+│   bug03
+│   InstanceMethods.cs
+│   InstanzFeld.cs
+│   InstanzMethode.cs
+│   Konstruktor.cs
+│   Lamp02.csproj
+│   Override.cs
+│   Pro.cs
+│   StatischeFelder.cs
+│   StatischeMethoden.cs
+│   StatischesFeld.cs
+│
+├───bin
+│   └───Debug
+│       └───net8.0
+└───obj
+    │   Lamp02.csproj.nuget.dgspec.json
+    │   Lamp02.csproj.nuget.g.props
+    │   Lamp02.csproj.nuget.g.targets
+    │   project.assets.json
+    │   project.nuget.cache
+    │   project.packagespec.json
+    │   rider.project.model.nuget.info
+    │   rider.project.restore.info
+    │
+    └───Debug
+        └───net8.0
+            │   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+            │   Lamp02.AssemblyInfo.cs
+            │   Lamp02.AssemblyInfoInputs.cache
+            │   Lamp02.assets.cache
+            │   Lamp02.GeneratedMSBuildEditorConfig.editorconfig
+            │   Lamp02.GlobalUsings.g.cs
+            │
+            ├───ref
+            └───refint
+
+````

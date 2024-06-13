@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StromBerechnung", "StromBerechnung\StromBerechnung.csproj", "{AAA9E829-CC8F-47C4-B96C-DC6B3889C0F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeaderRider", "..\..\..\..\working-directory\c#NET\c#Rider\OOP\HeaderRider\HeaderRider.csproj", "{E6774AC9-8EE4-47FF-8E9F-28EA9327E961}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AAA9E829-CC8F-47C4-B96C-DC6B3889C0F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAA9E829-CC8F-47C4-B96C-DC6B3889C0F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAA9E829-CC8F-47C4-B96C-DC6B3889C0F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAA9E829-CC8F-47C4-B96C-DC6B3889C0F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6774AC9-8EE4-47FF-8E9F-28EA9327E961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6774AC9-8EE4-47FF-8E9F-28EA9327E961}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6774AC9-8EE4-47FF-8E9F-28EA9327E961}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6774AC9-8EE4-47FF-8E9F-28EA9327E961}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

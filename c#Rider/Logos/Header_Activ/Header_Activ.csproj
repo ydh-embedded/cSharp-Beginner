@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Pacman\Pacman.csproj" />
+      <ProjectReference Include="..\Rider_VS_Studio\Rider_VS_Studio.csproj" />
+      <ProjectReference Include="..\yDh_embedded\yDh_embedded.csproj" />
+    </ItemGroup>
+
+</Project>
