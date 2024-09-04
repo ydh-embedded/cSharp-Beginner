@@ -7,13 +7,12 @@ namespace Code_Coach_Challenge
     {
         static void Main(string[] args)
         {
-            string postText = Console.ReadLine();
+            string sPostText = Console.ReadLine();
 
-            Post post = new Post(postText);
+            Post post = new Post(sPostText);
             post.ShowPost();
         }
     }
-    
 
     class Post
     {
@@ -26,15 +25,15 @@ namespace Code_Coach_Challenge
         }
 
         // Property for text
-        public string Text
-        {
-            get { return text; }
-            set { text = value; }
+        public string Text 
+        { 
+            get { return text; } 
+            set { text = value; } 
         }
 
         public void ShowPost()
         {
-            Console.WriteLine(text);
+            Console.WriteLine(Text); // I changed this to use the property instead of the private field
         }
     }
 }
