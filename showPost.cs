@@ -18,22 +18,23 @@ namespace Code_Coach_Challenge
     {
         private string text;
 
-        // Constructor
+        //NOTE - Constructor
         public Post(string text)
         {
             this.text = text;
         }
 
-        // Property for text
+        //NOTE - Property for text
         public string Text 
         { 
             get { return text; } 
             set { text = value; } 
         }
 
+        //NOTE - changed this to use the property instead of the private field
         public void ShowPost()
         {
-            Console.WriteLine(Text); // I changed this to use the property instead of the private field
+            Console.WriteLine(Text); 
         }
     }
 }
