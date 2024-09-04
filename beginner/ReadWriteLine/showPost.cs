@@ -7,34 +7,34 @@ namespace Code_Coach_Challenge
     {
         static void Main(string[] args)
         {
-            string postText = Console.ReadLine();
+            string sPostText = Console.ReadLine();
 
-            Post post = new Post(postText);
+            Post post = new Post(sPostText);
             post.ShowPost();
         }
     }
-    
 
     class Post
     {
         private string text;
 
-        // Constructor
+        //NOTE - Constructor
         public Post(string text)
         {
             this.text = text;
         }
 
-        // Property for text
-        public string Text
-        {
-            get { return text; }
-            set { text = value; }
+        //NOTE - Property for text
+        public string Text 
+        { 
+            get { return text; } 
+            set { text = value; } 
         }
 
+        //NOTE - changed this to use the property instead of the private field
         public void ShowPost()
         {
-            Console.WriteLine(text);
+            Console.WriteLine(Text); 
         }
     }
 }
