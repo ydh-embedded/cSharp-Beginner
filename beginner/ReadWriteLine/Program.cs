@@ -1,7 +1,7 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace Code_Coach_Challenge
+namespace ReadWriteLine
 {
     class Program
     {
