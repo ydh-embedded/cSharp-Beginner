@@ -1,7 +1,7 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace Code_Coach_Challenge
+namespace ReadWriteLine
 {
     class Program
     {
@@ -34,6 +34,7 @@ namespace Code_Coach_Challenge
         //NOTE - changed this to use the property instead of the private field
         public void ShowPost()
         {
+            Console.WriteLine("New post");
             Console.WriteLine(Text); 
         }
     }
