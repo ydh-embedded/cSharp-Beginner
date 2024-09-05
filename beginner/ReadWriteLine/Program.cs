@@ -34,6 +34,7 @@ namespace ReadWriteLine
         //NOTE - changed this to use the property instead of the private field
         public void ShowPost()
         {
+            Console.WriteLine("New post");
             Console.WriteLine(Text); 
         }
     }
