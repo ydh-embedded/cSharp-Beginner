@@ -3,24 +3,24 @@ namespace Array_von_Arrays;
 
 class Program
 {
-static void Main(string[] args)
-{
-Console.WriteLine(@"
+ static void Main(string[] args)
+ {
+    Console.WriteLine(@"
 
-**************************************************************************
-  Array in Arrays Tabellen-Form  
+    **************************************************************************
+      Array in Arrays Tabellen-Form  
 
-  Ein unregelmäßiges Array ist ein Array-von-Arrays, 
-  also ist ein int[ ][ ] ein Array von int[ ], 
-  von denen jedes unterschiedliche Längen haben und 
-  ihren eigenen Block im Speicher belegen kann.
-  
-  Ein multidimensionales Array (int[,]) 
-  ist ein einzelner Speicherblock (im Grunde eine Matrix). 
+      Ein unregelmäßiges Array ist ein Array-von-Arrays, 
+      also ist ein int[ ][ ] ein Array von int[ ], 
+      von denen jedes unterschiedliche Längen haben und 
+      ihren eigenen Block im Speicher belegen kann.
+    
+      Ein multidimensionales Array (int[,]) 
+      ist ein einzelner Speicherblock (im Grunde eine Matrix). 
 
-  
-  Es hat immer die gleiche Anzahl von Spalten für jede Zeile.
-**************************************************************************");
+    
+      Es hat immer die gleiche Anzahl von Spalten für jede Zeile.
+    **************************************************************************");
 
     int[][] jaggedArr = new int[][]
     {
@@ -44,7 +44,5 @@ Console.WriteLine(@"
         Console.WriteLine();
     }
 
-    // Print bottom border
-    Console.WriteLine("------------");
-}
+ }
 }
