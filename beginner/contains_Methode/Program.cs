@@ -51,7 +51,8 @@ class Program
 
             if (count > 0)
             {
-                Console.WriteLine($"Found {count} words containing the letter '{letter}'");
+                // Console.WriteLine($"Found {count} words containing the letter '{letter}'");
+                Console.WriteLine($"");
             }
             else
             {
