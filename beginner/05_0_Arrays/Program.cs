@@ -1,4 +1,4 @@
-﻿namespace Arrays;
+﻿namespace _05_0_Arrays;
 
 class Program
 {
@@ -52,7 +52,19 @@ class Program
                 Console.WriteLine();
             }
 
+            Console.WriteLine(" Wir sortieren Das Array");
+
+            int[] arr = {1, 2, 3, 4};
+
+            Array.Reverse(arr);            //arr = {4, 3, 2, 1}
+
+            Array.Sort(arr);              //arr = {1, 2, 3, 4}
+
+            
+
+
             // Print bottom border
             Console.WriteLine("------------");
         }
+
 }
