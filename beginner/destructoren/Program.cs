@@ -1,25 +1,11 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 namespace destructoren
 {
-    class Program
+    public class Program
     {
-class Dog
-        {
-            public Dog()
-            {
-                Console.WriteLine("Line 14: Constructor");
-            }
-            ~Dog()
-            {
-                Console.WriteLine("Line 17: Destructor");
-            }
-        }
-
-
-
-
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Console.WriteLine(@"
 
@@ -27,35 +13,70 @@ class Dog
 
                     Destructors 
                     
-                    Lassen Sie uns WriteLine-Anweisungen im Destruktor und
-                    Konstruktor unserer Klasse einbeziehen und sehen,
-                    wie sich das Programm verhält,
-                    wenn ein Objekt dieser Klasse erstellt wird und
-                    wenn das Programm endet:  
+                    In C#, a destructor is also known as a finalizer.
+                    It's a special method that's called
+                    when an object is being garbage collected.
 
-                    The Dog class has two members:
+                    In this example, the MyClass class allocates an unmanaged
+                    resource (a block of memory) in its constructor.
+                    The ~MyClass() method is the destructor,
+                    which is called when an instance of MyClass is being garbage
+                    collected. In the destructor,
+                    we release the unmanaged resource using Marshal.FreeHGlobal.
 
-                    The **constructor** public Dog():
-                         This is a special method that is called
-                         when an object of the Dog class is created.
-                         In this case, it simply prints 
-                         the message Constructor to the console.
-                    
-                    The **destructor** ~Dog():
-                        This is a special method that is called
-                        when an object of the Dog class is about
-                        to be garbage collected 
-                        (i.e., when its memory is about to be freed).
-                        In this case,
-                        it simply prints the message Destructor to the console.
+                    Note that in C#, it's generally recommended
+                    to use a using statement or implement the IDisposable
+                    interface to ensure that resources are released
+                    in a timely manner, rather than relying on
+                    the garbage collector to call the destructor.
+
+                    Summary: 
+
+                    Implemented MyClass with constructor and destructor
+                    to illustrate C# garbage collection and resource management.
+                    The destructor (~MyClass()) releases unmanaged resources
+                    allocated in the constructor, demonstrating best practices
+                    for resource cleanup in C#.
+
 
             **************************************************************************");
-            Console.WriteLine("Line 25: Creating a new Dog object...");
-            Dog d = new Dog();
 
-            Console.WriteLine("Line 27: Forcing the garbage collector to run...");
-            // Add a GC.Collect() call to force the garbage collector to run
-            GC.Collect();
+
+
+
+
+
+
+            MyClass obj = new MyClass();
+            Console.WriteLine("Line 50:                 obj is in scope");
+            Console.WriteLine("Line 52:                 obj is out of scope");
+            GC.Collect();                            // Force garbage collection
+            Console.WriteLine("Line 54:                 Garbage collection complete");
+            Console.ReadLine();
+        }
+    }
+
+    public class MyClass
+    {
+        private IntPtr _unmanagedResource;
+
+
+
+        public MyClass()
+        {
+            _unmanagedResource = Marshal.AllocHGlobal(1024);
+            Console.WriteLine("Line 65:                 Constructor");
+        }
+        ~MyClass()
+        {
+            // Release unmanaged resources here
+            Marshal.FreeHGlobal(_unmanagedResource);
+            Console.WriteLine("Line 70:                 Destructor");
+        }
+
+        public IntPtr UnmanagedResource
+        {
+            get { return _unmanagedResource; }
         }
     }
 }
