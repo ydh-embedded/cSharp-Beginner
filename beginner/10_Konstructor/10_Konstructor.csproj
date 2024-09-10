@@ -6,6 +6,7 @@
     <RootNamespace>_10_Konstructor</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <WarnAsError>true</WarnAsError>
   </PropertyGroup>
 
 </Project>
