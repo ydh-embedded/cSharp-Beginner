@@ -43,9 +43,23 @@ namespace _09_statik_members
 
 
 
+
             Cat c1 = new Cat();
             Cat c2 = new Cat();
             Console.WriteLine(Cat.count);
+            
+            
+                    Console.WriteLine(@"
+            
+            **************************************************************************
+
+                    Static methods
+
+                    Static methods - can access only static members.
+
+            **************************************************************************");
+            
+            Dog.Bark();
         }
 
 
@@ -54,6 +68,13 @@ namespace _09_statik_members
             public static int count=0;
             public Cat() {
                 count++;
+            }
+        }
+
+        class Dog
+        {
+            public static void Bark() {
+                Console.WriteLine("Woof");
             }
         }
     }
