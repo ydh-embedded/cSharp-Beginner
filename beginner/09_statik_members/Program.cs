@@ -56,10 +56,59 @@ namespace _09_statik_members
                     Static methods
 
                     Static methods - can access only static members.
+                    The Main method is static, as it is the starting point of
+                    any program.
+                    Therefore any method called directly from Main had to be static.
 
             **************************************************************************");
             
             Dog.Bark();
+            
+                    Console.WriteLine(@"
+            
+            **************************************************************************
+
+                    Static class
+
+                    
+                    An entire class can be declared as static.
+                    A static class can contain only static members. 
+                    You cannot instantiate an object of a static class,
+                    as only one instance of the static class can exist in a program.
+                    Static classes are useful for combining logical properties and
+                    methods. A good example of this is the Math class.
+
+                    It contains various useful properties and
+                    methods for mathematical operations. .
+
+
+                    
+                    Math 
+                    Math.PI the constant PI.
+                    
+                    Math.E represents the natural logarithmic base e.
+                    
+                    Math.Max() returns the larger of its two arguments.
+                    
+                    Math.Min() returns the smaller of its two arguments.
+                    
+                    Math.Abs() returns the absolute value of its argument.
+                    
+                    Math.Sin() returns the sine of the specified angle.
+                    
+                    Math.Cos() returns the cosine of the specified angle.
+                    
+                    Math.Pow() returns a specified number raised to the specified power.
+                    
+                    Math.Round() rounds the decimal number to its nearest integral value.
+                    
+                    Math.Sqrt() returns the square root of a specified number.
+
+            **************************************************************************");
+
+            Console.WriteLine(Math.Pow(2, 3));
+            //Console.WriteLine(Math.Pow(2,))
+
         }
 
 
@@ -77,5 +126,8 @@ namespace _09_statik_members
                 Console.WriteLine("Woof");
             }
         }
+
+
+
     }
 }
