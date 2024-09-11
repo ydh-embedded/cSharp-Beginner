@@ -23,7 +23,7 @@ class Program
                     For example, you can redefine the action of
                     the plus (+) operator in a custom class.
 
-                    Consider the Box class that has Height and Width properties: 
+                    Consider the Box class that has iHeight and iWidth properties: 
 
                     Summary:
 
@@ -40,7 +40,7 @@ class Program
             System.Console.WriteLine("Box 1: "+ box1.ToString());
             System.Console.WriteLine("Box 2: "+ box2.ToString());
 
-                                Console.WriteLine(@"
+                                Console.WriteLine(@" 
 
             **************************************************************************
 
@@ -55,7 +55,7 @@ class Program
 
                     I added the operator + overload to the Box class,
                     which takes two Box objects as parameters and returns
-                    a new Box object with the summed Height and Width properties.
+                    a new Box object with the summed iHeight and iWidth properties.
 
                     Summary:
 
@@ -70,37 +70,37 @@ class Program
 
             **************************************************************************");
             Box box3 = box1 + box2 ;
-            box3.Name = "Result Box";                                       //ANCHOR - Change the name of box3
-            System.Console.WriteLine($" {nameof(box3)}: {box3}  //NOTE - We added two Boxes");
+            box3.sName = "Result Box";                                       //ANCHOR - Change the sName of box3
+            System.Console.WriteLine($" {nameof(box3)}: {box3}             //NOTE - We added two Boxes");
     }
     class Box //SECTION - class Box
     {
-          public int Height {get; set;}
-          public int Width {get; set;}
+          public int iHeight {get; set;}
+          public int iWidth {get; set;}
 
-          public string Name {get; set;}
+          public string sName {get; set;}
           public Box(string n,int h, int w)
           {
-                Name   = n ; 
-                Height = h ;
-                Width  = w ;
+                sName   = n ; 
+                iHeight = h ;
+                iWidth  = w ;
           }
 
           public static Box operator +(Box b1, Box b2)                      //ANCHOR - "+" Overloading
           {
             
-            return new Box($"Result Box ({b1.Name} + {b2.Name})", b1.Height + b2.Height, b1.Width + b2.Width);
+            return new Box($"Result Box ({b1.sName} + {b2.sName})", b1.iHeight + b2.iHeight, b1.iWidth + b2.iWidth);
           }
 
           public static Box operator -(Box b1, Box b2)                      //ANCHOR - "-" Overloading
           {
             
-            return new Box($"Result Box ({b1.Name} - {b2.Name})", b1.Height + b2.Height, b1.Width + b2.Width);
+            return new Box($"Result Box ({b1.sName} - {b2.sName})", b1.iHeight + b2.iHeight, b1.iWidth + b2.iWidth);
           }
 
           public static Box operator *(Box b, int scalar)                   //ANCHOR - "*" Overloading
           {
-            return new Box($"Result Box ({b.Name} * {scalar})", b.Height * scalar, b.Width * scalar);
+            return new Box($"Result Box ({b.sName} * {scalar})", b.iHeight * scalar, b.iWidth * scalar);
             
           }
 
@@ -108,7 +108,7 @@ class Program
 
           public override string ToString()                                 //ANCHOR - Override StringTo String                            
           {
-            return $"{Name}({Height}x{Width})";
+            return $"{sName}({iHeight}x{iWidth})";
           }
     } 
 }
