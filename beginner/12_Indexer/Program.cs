@@ -17,7 +17,7 @@ class Program
                 set { names[index] = value;}
             }
         }
-    class static void Main(string[] args)
+    static void Main(string[] args)
     {
         
                     Console.WriteLine(@"
