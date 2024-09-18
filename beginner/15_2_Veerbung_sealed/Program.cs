@@ -1,10 +1,15 @@
-﻿namespace _14_3_Overloading_dance;
+﻿using Microsoft.Build.Framework;
+using Microsoft.Build.Utilities;
+
+
+
+namespace _15_2_Veerbung_sealed;
 
 class Program
 {
-    static void Main(string[] args)
-    {
-        Console.WriteLine(@"
+        static void Main(string[] args)
+        {
+            Console.WriteLine(@"
 
             @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%###%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
             @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%##*******##%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -26,7 +31,6 @@ class Program
             @@@@**********---------+******************####%%#######*===---==---=##%@@@
             @@@@**********---------****************####%###########*==---==---++##%@@@
             @@@@**********---------************####%#################*--+##--=####%@@@
-            @@@@**********---------*********####%#################%+------------##%@@@
             @@@@**********=--------+*****###########################+--=**---***##%@@@
             @@@@***********---------+########################%######+--*#*--+#####%@@@
             @@@@***********=---------+#######################*-=*#################%@@@
@@ -35,7 +39,7 @@ class Program
             @@@@*******#######*-------------=++*****++=-------------+#############%@@@
             @@@@****############+---------------------------------+###############%@@@
             @@@@%###%#%###########+=----------------------------+##%#############%%@@@
-            @@@@@%%%#################+=---------------------=+*##############%%%%@@@@@
+            @@@@@%%%#################+=---------------------=+*###############%%%%@@@@@
             @@@@@@@@@%%%%###############*++=-----------==+*###############%%%%@@@@@@@@
             @@@@@@@@@@@@@%%%###############%%#########################%%%%@@@@@@@@@@@@
             @@@@@@@@@@@@@@@@%%%%###################################%%%%@@@@@@@@@@@@@@@
@@ -45,80 +49,50 @@ class Program
             @@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%%#########%%%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@
             @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%####%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-
+            
 
             **************************************************************************
 
-                    Dance - Overloading
+                Inheritance -sealed
 
-                    In a ballroom dancing competition,
-                    each dancer from a pair is evaluated separately,
-                    and then their points are summed up to get the total pair score.
-                    The program you are given takes the names and
-                    the points of each dancer as input and creates a DancerPoints
-                    objects for each dancer,
-                    using the taken name and score values as parameters for constructors.
-                    Complete the given class, using overload + operator
-                    to return an new object where the names of
-                    dancers are in one string (see sample output) and
-                    the score is equal to the sum of their points.
-                    The declaration of that object and the output of
-                    its points are already written in Main().
+                A class can prevent other classes from inheriting it,
+                or any of its members, by using the sealed modifier.
 
-                    Definition:
+                Attention:
 
-                    The DancerPoints class has two properties:
-                    name and points, which are set through the constructor.
+                In this case, we cannot derive the Dog class from
+                the Animal class because Animal is sealed.
 
-                    The + operator is overloaded
-                    to take two DancerPoints objects as parameters.
-                    It combines the names of the two dancers with an &
-                    separator and adds their points together.
-                    The resulting DancerPoints object is returned.
-
+                | Error Code | Error Message | File | Line |
+                | --- | --- | --- | --- |
+                | CS0509 | "Dog": Vom versiegelten Typ "Animal" kann nicht abgeleitet werden. | Program.cs | 69 |
 
 
             **************************************************************************");
-            //REVIEW -   (player_1 = Dave points_1 = 8 , player_2 = Jessica | points_2 = 7)
 
-            //REVIEW - Input
-            Console.Write("Enter the name of the first dancer: ");
-            string sName_1 = Console.ReadLine();
-            Console.Write("Enter the points of the first dancer: ");
-            int  iPoints_1 = Convert.ToInt32(Console.ReadLine());
+        }
 
-            Console.Write("Enter the name of the second dancer: ");
-            string sName_2 = Console.ReadLine();
-            Console.Write("Enter the points of the second dancer: ");
-            int  iPoints_2 = Convert.ToInt32(Console.ReadLine());
-
-
-            DancerPoints dancer1 = new DancerPoints(sName_1, iPoints_1);
-            DancerPoints dancer2 = new DancerPoints(sName_2, iPoints_2);
-
-
-            DancerPoints total = dancer1 + dancer2;                          //SECTION - Additional Opperator
-
-            Console.Write("Team: " + total.name + " with " + total.points + " Points: ");
-
-    }
 }
 
-public class DancerPoints
+
+class Dog : Animal { }                      //STUB - Error
+
+
+sealed class Animal { }
+
+public class MarkdownLogger : Logger
 {
-    public string name { get; set; }
-    public int points { get; set; }
-
-    public DancerPoints(string name, int points)
+    public override void ErrorOccurred(BuildEventFileInfo file, string message, string helpKeyword, string senderName)
     {
-        this.name = name;
-        this.points = points;
-    }
-
-    public static DancerPoints operator +(DancerPoints dancer1, DancerPoints dancer2)
-    {
-        string combinedName = $"{dancer1.name} & {dancer2.name}";
-        int combinedPoints = dancer1.points + dancer2.points;
-        return new DancerPoints(combinedName, combinedPoints);
+        Console.WriteLine($"| {file.FileName} | {message} | {file.LineNumber} |");
     }
 }
+
+//FIXME - 
+//FIXME - (base) PS C:\working-directory\cSharp-Beginner\beginner\15_2_Veerbung_sealed> dotnet run
+//FIXME - C:\working-directory\cSharp-Beginner\beginner\15_2_Veerbung_sealed\Program.cs(65,13): error C 
+//FIXME - S0509: "Dog": Vom versiegelten Typ "Animal" kann nicht abgeleitet werden. [C:\working-directo 
+//FIXME - ry\cSharp-Beginner\beginner\15_2_Veerbung_sealed\15_2_Veerbung_sealed.csproj]
+//FIXME - 
+//FIXME - Fehler beim Buildvorgang. Beheben Sie die Buildfehler, und versuchen Sie es anschließend noch 
+//FIXME - mal.

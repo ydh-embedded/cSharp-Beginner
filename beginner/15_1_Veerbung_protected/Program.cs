@@ -1,10 +1,59 @@
-﻿namespace _14_3_Overloading_dance;
+﻿using System;
 
-class Program
+namespace _15_1_Veerbung_protected
 {
-    static void Main(string[] args)
+    class Person
     {
-        Console.WriteLine(@"
+        protected int iAge { get; set; }
+        protected string sName { get; set; }
+
+        public Person(string name)
+        {
+            sName = name;
+        }
+
+        public virtual void Speak()
+        {
+            Console.WriteLine("Name: " + sName);
+        }
+    }
+
+    class Student : Person
+    {
+        public Student(string name) : base(name) { }
+
+        public override void Speak(){Console.WriteLine("Name: " + sName); }
+    }
+
+    class Teacher : Person
+    {
+        public Teacher(string name) : base(name) { }
+
+        public override void Speak(){Console.WriteLine("Name: " + sName);  }
+
+        public void GradeAssignment(){Console.WriteLine("Grading assignment...");   }
+    }
+
+    class Professor : Teacher
+    {
+        public Professor(string name) : base(name) { }
+
+        public override void Speak()
+        {
+            Console.WriteLine("Name: " + sName);
+        }
+
+        public void PublishResearch()
+        {
+            Console.WriteLine("Publishing research paper...");
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(@"
 
             @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%###%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
             @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%##*******##%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -26,7 +75,6 @@ class Program
             @@@@**********---------+******************####%%#######*===---==---=##%@@@
             @@@@**********---------****************####%###########*==---==---++##%@@@
             @@@@**********---------************####%#################*--+##--=####%@@@
-            @@@@**********---------*********####%#################%+------------##%@@@
             @@@@**********=--------+*****###########################+--=**---***##%@@@
             @@@@***********---------+########################%######+--*#*--+#####%@@@
             @@@@***********=---------+#######################*-=*#################%@@@
@@ -35,7 +83,7 @@ class Program
             @@@@*******#######*-------------=++*****++=-------------+#############%@@@
             @@@@****############+---------------------------------+###############%@@@
             @@@@%###%#%###########+=----------------------------+##%#############%%@@@
-            @@@@@%%%#################+=---------------------=+*##############%%%%@@@@@
+            @@@@@%%%#################+=---------------------=+*###############%%%%@@@@@
             @@@@@@@@@%%%%###############*++=-----------==+*###############%%%%@@@@@@@@
             @@@@@@@@@@@@@%%%###############%%#########################%%%%@@@@@@@@@@@@
             @@@@@@@@@@@@@@@@%%%%###################################%%%%@@@@@@@@@@@@@@@
@@ -49,76 +97,38 @@ class Program
 
             **************************************************************************
 
-                    Dance - Overloading
+                Veerbung Inheritance
 
-                    In a ballroom dancing competition,
-                    each dancer from a pair is evaluated separately,
-                    and then their points are summed up to get the total pair score.
-                    The program you are given takes the names and
-                    the points of each dancer as input and creates a DancerPoints
-                    objects for each dancer,
-                    using the taken name and score values as parameters for constructors.
-                    Complete the given class, using overload + operator
-                    to return an new object where the names of
-                    dancers are in one string (see sample output) and
-                    the score is equal to the sum of their points.
-                    The declaration of that object and the output of
-                    its points are already written in Main().
+                Inheritance allows us to define a class based on another class.
+                This makes creating and maintaining an application easy.
 
-                    Definition:
+                The class whose properties are inherited by another class
+                is called the Base class. The class which inherits the properties
+                is called the Derived class.
 
-                    The DancerPoints class has two properties:
-                    name and points, which are set through the constructor.
-
-                    The + operator is overloaded
-                    to take two DancerPoints objects as parameters.
-                    It combines the names of the two dancers with an &
-                    separator and adds their points together.
-                    The resulting DancerPoints object is returned.
+                For example, base class Animal can be used to derive Cat and Dog classes.
+                The derived class inherits all the features from the base class,
+                and can have its own additional features. 
 
 
 
             **************************************************************************");
-            //REVIEW -   (player_1 = Dave points_1 = 8 , player_2 = Jessica | points_2 = 7)
 
-            //REVIEW - Input
-            Console.Write("Enter the name of the first dancer: ");
-            string sName_1 = Console.ReadLine();
-            Console.Write("Enter the points of the first dancer: ");
-            int  iPoints_1 = Convert.ToInt32(Console.ReadLine());
+            Person person = new Person("John");
+            person.Speak();                             // Output: Name: John
 
-            Console.Write("Enter the name of the second dancer: ");
-            string sName_2 = Console.ReadLine();
-            Console.Write("Enter the points of the second dancer: ");
-            int  iPoints_2 = Convert.ToInt32(Console.ReadLine());
+            Student student = new Student("Davidoff");
+            student.Speak();                            // Output: Name: Davidoff
 
+            Teacher teacher = new Teacher("Ms. Smith");
+            teacher.Speak();                            // Output: Name: Ms. Smith
+            teacher.GradeAssignment();                  // Output: Grading assignment...
 
-            DancerPoints dancer1 = new DancerPoints(sName_1, iPoints_1);
-            DancerPoints dancer2 = new DancerPoints(sName_2, iPoints_2);
-
-
-            DancerPoints total = dancer1 + dancer2;                          //SECTION - Additional Opperator
-
-            Console.Write("Team: " + total.name + " with " + total.points + " Points: ");
-
-    }
-}
-
-public class DancerPoints
-{
-    public string name { get; set; }
-    public int points { get; set; }
-
-    public DancerPoints(string name, int points)
-    {
-        this.name = name;
-        this.points = points;
+            Professor professor = new Professor("Dr. Johnson");
+            professor.Speak();                          // Output: Name: Dr. Johnson
+            professor.GradeAssignment();                // Output: Grading assignment...
+            professor.PublishResearch();                // Output: Publishing research paper...
+        }
     }
 
-    public static DancerPoints operator +(DancerPoints dancer1, DancerPoints dancer2)
-    {
-        string combinedName = $"{dancer1.name} & {dancer2.name}";
-        int combinedPoints = dancer1.points + dancer2.points;
-        return new DancerPoints(combinedName, combinedPoints);
-    }
 }
