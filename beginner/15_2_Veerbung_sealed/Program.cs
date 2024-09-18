@@ -1,56 +1,7 @@
-﻿using System;
+﻿namespace _15_2_Veerbung_sealed;
 
-namespace _15_1_Veerbung_protected
+class Program
 {
-    class Person
-    {
-        protected int iAge { get; set; }
-        protected string sName { get; set; }
-
-        public Person(string name)
-        {
-            sName = name;
-        }
-
-        public virtual void Speak()
-        {
-            Console.WriteLine("Name: " + sName);
-        }
-    }
-
-    class Student : Person
-    {
-        public Student(string name) : base(name) { }
-
-        public override void Speak(){Console.WriteLine("Name: " + sName); }
-    }
-
-    class Teacher : Person
-    {
-        public Teacher(string name) : base(name) { }
-
-        public override void Speak(){Console.WriteLine("Name: " + sName);  }
-
-        public void GradeAssignment(){Console.WriteLine("Grading assignment...");   }
-    }
-
-    class Professor : Teacher
-    {
-        public Professor(string name) : base(name) { }
-
-        public override void Speak()
-        {
-            Console.WriteLine("Name: " + sName);
-        }
-
-        public void PublishResearch()
-        {
-            Console.WriteLine("Publishing research paper...");
-        }
-    }
-
-    class Program
-    {
         static void Main(string[] args)
         {
             Console.WriteLine(@"
@@ -93,42 +44,39 @@ namespace _15_1_Veerbung_protected
             @@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%%#########%%%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@
             @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%####%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-
+            
 
             **************************************************************************
 
-                Veerbung Inheritance
+                Inheritance -sealed
 
-                Inheritance allows us to define a class based on another class.
-                This makes creating and maintaining an application easy.
+                A class can prevent other classes from inheriting it,
+                or any of its members, by using the sealed modifier.
 
-                The class whose properties are inherited by another class
-                is called the Base class. The class which inherits the properties
-                is called the Derived class.
+                Attention:
 
-                For example, base class Animal can be used to derive Cat and Dog classes.
-                The derived class inherits all the features from the base class,
-                and can have its own additional features. 
-
+                In this case, we cannot derive the Dog class from
+                the Animal class because Animal is sealed.
 
 
             **************************************************************************");
 
-            Person person = new Person("John");
-            person.Speak();                             // Output: Name: John
-
-            Student student = new Student("Davidoff");
-            student.Speak();                            // Output: Name: Davidoff
-
-            Teacher teacher = new Teacher("Ms. Smith");
-            teacher.Speak();                            // Output: Name: Ms. Smith
-            teacher.GradeAssignment();                  // Output: Grading assignment...
-
-            Professor professor = new Professor("Dr. Johnson");
-            professor.Speak();                          // Output: Name: Dr. Johnson
-            professor.GradeAssignment();                // Output: Grading assignment...
-            professor.PublishResearch();                // Output: Publishing research paper...
         }
-    }
 
 }
+
+
+class Dog : Animal { }                      //STUB - Error
+
+
+sealed class Animal { }
+
+
+//FIXME - 
+//FIXME - (base) PS C:\working-directory\cSharp-Beginner\beginner\15_2_Veerbung_sealed> dotnet run
+//FIXME - C:\working-directory\cSharp-Beginner\beginner\15_2_Veerbung_sealed\Program.cs(65,13): error C 
+//FIXME - S0509: "Dog": Vom versiegelten Typ "Animal" kann nicht abgeleitet werden. [C:\working-directo 
+//FIXME - ry\cSharp-Beginner\beginner\15_2_Veerbung_sealed\15_2_Veerbung_sealed.csproj]
+//FIXME - 
+//FIXME - Fehler beim Buildvorgang. Beheben Sie die Buildfehler, und versuchen Sie es anschließend noch 
+//FIXME - mal.
