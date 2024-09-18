@@ -1,4 +1,9 @@
-﻿namespace _15_2_Veerbung_sealed;
+﻿using Microsoft.Build.Framework;
+using Microsoft.Build.Utilities;
+
+
+
+namespace _15_2_Veerbung_sealed;
 
 class Program
 {
@@ -58,6 +63,10 @@ class Program
                 In this case, we cannot derive the Dog class from
                 the Animal class because Animal is sealed.
 
+                | Error Code | Error Message | File | Line |
+                | --- | --- | --- | --- |
+                | CS0509 | "Dog": Vom versiegelten Typ "Animal" kann nicht abgeleitet werden. | Program.cs | 69 |
+
 
             **************************************************************************");
 
@@ -71,6 +80,13 @@ class Dog : Animal { }                      //STUB - Error
 
 sealed class Animal { }
 
+public class MarkdownLogger : Logger
+{
+    public override void ErrorOccurred(BuildEventFileInfo file, string message, string helpKeyword, string senderName)
+    {
+        Console.WriteLine($"| {file.FileName} | {message} | {file.LineNumber} |");
+    }
+}
 
 //FIXME - 
 //FIXME - (base) PS C:\working-directory\cSharp-Beginner\beginner\15_2_Veerbung_sealed> dotnet run
