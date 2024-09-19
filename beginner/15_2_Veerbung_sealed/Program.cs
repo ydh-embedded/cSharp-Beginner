@@ -16,6 +16,7 @@ class Program
 {
         static void Main(string[] args)
         {
+            //NOTE - Header
             Console.WriteLine(@"
 
             @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%###%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -102,29 +103,28 @@ class Program
 
             **************************************************************************");
 
+            //NOTE - While-Loop Account-Number
             string sAccNumber;
-            do  {
+            do
+            {
                 Console.Write(@"                              Please enter your IBAN: ");
                   sAccNumber = Console.ReadLine();
-                } while (!bIsValid_IBAN(sAccNumber));
-            
-
-            static bool bIsValid_IBAN(string iban)
+            } while (!bIsValid_IBAN(sAccNumber));
+                        static bool bIsValid_IBAN(string iban)
             {
                 // IBAN pattern: 4 groups of 4 digits, separated by spaces
                 string pattern = @"^(\d{4} ){3}\d{4}$";
                 return Regex.IsMatch(iban, pattern);
             }
 
+            //NOTE - While-Loop Balance / valery
             string sInput_Balance;
             do
             {
                 Console.Write(@"                              Please enter your Balance: ");
                 sInput_Balance = Console.ReadLine();
             } while (!bIsValid_Balance(sInput_Balance));
-
-
-            static bool bIsValid_Balance(string sbalance)
+                        static bool bIsValid_Balance(string sbalance)
             {
                 // Balance Pattern:
                 string pattern = @"^\d{1,4}\.\d{2}$";
