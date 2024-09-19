@@ -72,6 +72,11 @@ class Program
                 um zu funktionieren,
                 weshalb der Basisklassenkonstruktor zuerst aufgerufen wird.
 
+                Ausgabe:
+
+                Animal created
+                Dog created
+
 
             **************************************************************************");
 
