@@ -107,7 +107,7 @@ class Program
                 Console.Write(@"                              Please enter your IBAN: ");
                   sAccNumber = Console.ReadLine();
                 } while (!bIsValid_IBAN(sAccNumber));
-           
+            
 
             static bool bIsValid_IBAN(string iban)
             {
@@ -117,19 +117,14 @@ class Program
             }
 
             string sInput_Balance;
-            double dBalance;
-
-            do  
+            do
             {
                 Console.Write(@"                              Please enter your Balance: ");
                 sInput_Balance = Console.ReadLine();
-                
             } while (!bIsValid_Balance(sInput_Balance));
 
-            dBalance = double.Parse(sInput_Balance);
-
-
-
+            User user = new User(sAccNumber, double.Parse(sInput_Balance));
+            user.ShowDetails();
 
             static bool bIsValid_Balance(string sbalance)
             {
@@ -139,10 +134,7 @@ class Program
             }
 
 
-
-
-
-            User user = new User(sAccNumber, sInput_Balance);
+            User user = new User(sAccNumber, dBalance);
 
             user.ShowDetails();
         }
@@ -151,26 +143,19 @@ class Program
 
 class Account
 {
-    //FIXME - private double Balance { get; set; } setzen wir in protected damit wir in der abgeleiteten 
-            protected double Balance { get; set; }
-
-    //FIXME -  Constructors should be lightweight and not perform complex operations or I/O operations
-    // public Account() //Klassenkonstruktor
-    //  {
-    //    Console.Write("Enter initial balance: ");
-    //    Balance = Convert.ToDouble(Console.ReadLine() ?? "0");
-    //  }
+    protected double Balance { get; set; }
 }
 
 class User : Account
 {
     public string sAccNumber { get; set; }
+    public string sInput_Balance { get; set;}
 
     //complete the constructor
-    public User(string sAccNumber, double balance)
+    public User(string saccnumber, double dbalance)
     {
-        this.Balance = balance;                        //REVIEW - init Property: "Balance" und übergeben es an den Konstruktor
-        this.sAccNumber = sAccNumber;                 //REVIEW - init Property: "sAccNumber" und übergeben es an den Konstruktor
+        this.Balance = dbalance;                              //REVIEW - init Property: "sAccNumber" und übergeben es an den Konstruktor
+        this.sAccNumber = saccnumber;                        //REVIEW - init Property: "Balance" und übergeben es an den Konstruktor
     }
     public void ShowDetails()
     {
