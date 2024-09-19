@@ -90,12 +90,12 @@ class Program
 
             //NOTE - Main
             
-            WayStatus status = new WayStatus();
-            status.WayStatus(); // Call methodOfWayStatus() method
+        WayStatus status = new WayStatus();
+        status.OnTheWay(); // Call OnTheWay() method
 
-            //REVIEW -  Force garbage collection to run
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
+        // Force garbage collection to run
+        GC.Collect();
+        GC.WaitForPendingFinalizers();
     }
 }
 
@@ -103,18 +103,16 @@ class Program
 
 class Flight
 {
-    public Flight() =>  Console.WriteLine("Registration");     //Constructor
+    public Flight() => Console.WriteLine("Registration");     //Constructor
 
     ~Flight() => System.Console.WriteLine("Closed");         //Destructor
-    
 }
 
 
 //NOTE - class WayStatus
 class WayStatus : Flight
 {
-    public void WayStatus() => System.Console.WriteLine("On the way");
+    public void OnTheWay() => System.Console.WriteLine("On the way");
     
     ~WayStatus() => System.Console.WriteLine("Landed");
-
 }
