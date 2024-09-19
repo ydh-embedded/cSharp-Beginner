@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
+
 using System.Threading;
 using System.Threading.Tasks;
+
 
 
 
@@ -99,41 +102,47 @@ class Program
 
             **************************************************************************");
 
-            string accNumber;
+            string sAccNumber;
             do  {
                 Console.Write(@"                              Please enter your IBAN: ");
-                  accNumber = Console.ReadLine();
-                } while (!sIsValid_IBAN(accNumber));
+                  sAccNumber = Console.ReadLine();
+                } while (!bIsValid_IBAN(sAccNumber));
            
 
-            static bool sIsValid_IBAN(string iban)
+            static bool bIsValid_IBAN(string iban)
             {
-                // IBAN pattern: 2 letters (country code) followed by 2 digits, then up to 30 alphanumeric characters
-                string pattern = @"^[A-Z]{2}[0-9]{2}[A-Z0-9]{1,30}$";
-                return Regex.IsMatch(iban, pattern);
                 // IBAN pattern: 4 groups of 4 digits, separated by spaces
                 string pattern = @"^(\d{4} ){3}\d{4}$";
                 return Regex.IsMatch(iban, pattern);
             }
 
-            double balance;
-            do  {
-                Console.Write(@"                              Please enter your Balance: ");
-                balance = Console.Read();
-                } while (!bIsValid_Balance(balance));
+            string sInput_Balance;
+            double dBalance;
 
-            static bool bIsValid_Balance(string balance)
+            do  
+            {
+                Console.Write(@"                              Please enter your Balance: ");
+                sInput_Balance = Console.ReadLine();
+                
+            } while (!bIsValid_Balance(sInput_Balance));
+
+            dBalance = double.Parse(sInput_Balance);
+
+
+
+
+            static bool bIsValid_Balance(string sbalance)
             {
                 // Balance Pattern:
                 string pattern = @"^\d{1,4}\.\d{2}$";
-                return Regex.IsMatch(balance, pattern);
+                return Regex.IsMatch(sbalance, pattern);
             }
 
 
 
 
 
-            User user = new User(accNumber, balance);
+            User user = new User(sAccNumber, sInput_Balance);
 
             user.ShowDetails();
         }
@@ -155,17 +164,17 @@ class Account
 
 class User : Account
 {
-    public string AccNumber { get; set; }
+    public string sAccNumber { get; set; }
 
     //complete the constructor
-    public User(string accNumber, double balance)
+    public User(string sAccNumber, double balance)
     {
-        this.Balance = balance;                     //REVIEW - init Property: "Balance" und übergeben es an den Konstruktor
-        this.AccNumber = accNumber;                 //REVIEW - init Property: "AccNumber" und übergeben es an den Konstruktor
+        this.Balance = balance;                        //REVIEW - init Property: "Balance" und übergeben es an den Konstruktor
+        this.sAccNumber = sAccNumber;                 //REVIEW - init Property: "sAccNumber" und übergeben es an den Konstruktor
     }
     public void ShowDetails()
     {
-            Console.WriteLine("Account N: " + AccNumber);
+            Console.WriteLine("Account N: " + sAccNumber);
             Console.WriteLine("Balance: " + Balance);
     }
 }
