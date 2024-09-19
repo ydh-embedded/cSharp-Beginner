@@ -5,9 +5,13 @@ using System.Collections.Generic;
 //FIXME - using Microsoft.Build.Framework;
 //FIXME - using Microsoft.Build.Utilities;
 
-//TODO - msbuild YourProject.csproj /t:Rebuild /fileLoggerParameters:LogFile=Bug_Errors.txt;Verbosity=Diagnostic;Encoding=UTF-8
 
-
+//REVIEW - Variante 1 Wenn MSBuild im SDK Ordner 
+//TODO - >> "& 'C:\Program Files\dotnet\sdk\4.0.30319\MSBuild\Current\Bin\msbuild.exe' 16_Bug_Report.csproj /t:Rebuild /fileLoggerParameters:'LogFile=Bug_Errors.md;Verbosity=Diagnostic;Encoding=UTF-8'"
+//REVIEW - Variante 2 Wenn MSBuild im Framework Ordner 
+//TODO - >> "& 'C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe' 16_Bug_Report.csproj /t:Rebuild /fileLoggerParameters:'LogFile=Bug_Errors.md;Verbosity=Diagnostic;Encoding=UTF-8'"
+//REVIEW - Variante 3 Wenn System Path Variable gesetzt wurde funktioniert auch dieser 
+//TODO - >> msbuild 16_Bug_Report.csproj /t:Rebuild /fileLoggerParameters:LogFile=Bug_Errors.md;Verbosity=Diagnostic;Encoding=UTF-8
 namespace _16_Bug_Report;
 
 class Program
@@ -58,15 +62,10 @@ class Program
 
             **************************************************************************
 
-                Inheritance -sealed
+                Bug-Report
 
-                A class can prevent other classes from inheriting it,
-                or any of its members, by using the sealed modifier.
-
-                Attention:
-
-                In this case, we cannot derive the Dog class from
-                the Animal class because Animal is sealed.
+                Mit dem ausführen der Bash Befehle [CodeZeile 10 , 12 , 14 ]
+                wird eine Markdaown Datei mit dem Namen Bug_Errors.md erstellt
 
             **************************************************************************");
 
