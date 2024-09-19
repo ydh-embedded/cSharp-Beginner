@@ -123,8 +123,6 @@ class Program
                 sInput_Balance = Console.ReadLine();
             } while (!bIsValid_Balance(sInput_Balance));
 
-            User user = new User(sAccNumber, double.Parse(sInput_Balance));
-            user.ShowDetails();
 
             static bool bIsValid_Balance(string sbalance)
             {
@@ -133,9 +131,7 @@ class Program
                 return Regex.IsMatch(sbalance, pattern);
             }
 
-
-            User user = new User(sAccNumber, dBalance);
-
+            User user = new User(sAccNumber, double.Parse(sInput_Balance));
             user.ShowDetails();
         }
 
