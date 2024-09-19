@@ -88,44 +88,33 @@ class Program
             **************************************************************************");
 
 
-           //NOTE - Main
-            Flight status_I = new Flight();
-            WayStatus status_II = new WayStatus();
+            //NOTE - Main
+            
+            WayStatus status = new WayStatus();
+            status.WayStatus(); // Call methodOfWayStatus() method
 
-            //REVIEW - Force garbage collection to run
-            status_I = null;
-            status_II = null;
+            //REVIEW -  Force garbage collection to run
             GC.Collect();
             GC.WaitForPendingFinalizers();
     }
 }
 
-//NOTE - class Flight
+//NOTE - Base Class Flight
 
 class Flight
 {
-    public Flight()                             //constructor
-    {
-        Console.WriteLine("Registration");
-    }
-    ~Flight()                                   //Destructor
-    {
-        Console.WriteLine("Closed");
-    }
+    public Flight() =>  Console.WriteLine("Registration");     //Constructor
+
+    ~Flight() => System.Console.WriteLine("Closed");         //Destructor
+    
 }
 
 
 //NOTE - class WayStatus
 class WayStatus : Flight
 {
-    public WayStatus() : base() { }             // Call base constructor
+    public void WayStatus() => System.Console.WriteLine("On the way");
+    
+    ~WayStatus() => System.Console.WriteLine("Landed");
 
-    public void methodOfWayStatus()   
-    {
-        System.Console.WriteLine("On the way");
-    }
-    ~WayStatus()
-    {
-        System.Console.WriteLine("Landed");
-    }
 }
