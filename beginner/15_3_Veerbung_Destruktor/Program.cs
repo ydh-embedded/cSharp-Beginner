@@ -2,20 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
-
-using System.Threading;
 using System.Threading.Tasks;
 
-
-
-
-namespace _15_2_Veerbung_sealed;
+namespace _15_3_Veerbung_Destruktor;
 
 class Program
 {
-        static void Main(string[] args)
-        {
+    static void Main(string[] args)
+    {
             //NOTE - Header
             Console.WriteLine(@"
 
@@ -61,101 +55,59 @@ class Program
 
             **************************************************************************
 
-                Inheritance - protected
+                Veerbung - Destruktor
 
-                Das Ihnen gegebene Programm nimmt eine Kontonummer und
-                ihren Saldo als Eingabe.Es definiert die Account Klasse
-                mit 1 Mitglied balance und leitet die User-Klasse davon
-                ab mit 1 zusätzlichem Mitglied - der Kontonummer,
-                erstellt dann ein User-Objekt und versucht,
-                den Saldo und die Kontonummer darin zu speichern,
-                und zeigt die Details an. Aber etwas stimmt nicht.
-                
-                Korrigieren Sie das Programm so,
-                dass es den User()-Konstruktor vervollständigt,
-                der die Parameter den entsprechenden Mitgliedern
-                der User-Klasse zuweisen sollte.
+                Beachten Sie, dass der Konstruktor der Basisklasse zuerst
+                aufgerufen wird und der Konstruktor der abgeleiteten Klasse
+                als nächstes aufgerufen wird.
 
-                Überprüfen Sie auch den Zugriffsmodifizierer
-                des balance-Mitglieds der Account-Klasse.
+                Wenn das Objekt zerstört wird,
+                wird der Destruktor der abgeleiteten Klasse aufgerufen und
+                dann wird der Destruktor der Basisklasse aufgerufen.
 
-                Beispiel-Eingabe:
+                Wichtig:
 
-                0056 1521 1236 4561
-                ReGeX pattern matches:
-                            
-                (\d{4} ){3} exactly 3 groups of 4 digits, separated by spaces
-                \d{4} the final group of 4 digits
-                
-                1488.36
-                ReGeX pattern matches:
+                Sie können es sich folgendermaßen vorstellen:
+                Die abgeleitete Klasse benötigt ihre Basisklasse,
+                um zu funktionieren,
+                weshalb der Basisklassenkonstruktor zuerst aufgerufen wird.
 
-                \d{1,4} between 1 and 4 digits
-                \. the decimal point
-                \d{2} exactly 2 digits
+                Ausgabe:
 
-
-                Beispiel-Ausgabe:
-
-                Konto Nr: 0056 1521 1236 4561
-                Saldo: 1488.36
+                Animal created
+                Dog created
 
 
             **************************************************************************");
 
-            //NOTE - While-Loop Account-Number
-            string sAccNumber;
-            do
-            {
-                Console.Write(@"                              Please enter your IBAN: ");
-                  sAccNumber = Console.ReadLine();
-            } while (!bIsValid_IBAN(sAccNumber));
-                        static bool bIsValid_IBAN(string iban)
-            {
-                // IBAN pattern: 4 groups of 4 digits, separated by spaces
-                string pattern = @"^(\d{4} ){3}\d{4}$";
-                return Regex.IsMatch(iban, pattern);
-            }
 
-            //NOTE - While-Loop Balance / valery
-            string sInput_Balance;
-            do
-            {
-                Console.Write(@"                              Please enter your Balance: ");
-                sInput_Balance = Console.ReadLine();
-            } while (!bIsValid_Balance(sInput_Balance));
-                        static bool bIsValid_Balance(string sbalance)
-            {
-                // Balance Pattern:
-                string pattern = @"^\d{1,4}\.\d{2}$";
-                return Regex.IsMatch(sbalance, pattern);
-            }
+           //NOTE - Main
+        
+            Dog d = new Dog();
 
-            User user = new User(sAccNumber, double.Parse(sInput_Balance));
-            user.ShowDetails();
-        }
-
-}
-
-class Account
-{
-    protected double Balance { get; set; }
-}
-
-class User : Account
-{
-    public string sAccNumber { get; set; }
-    public string sInput_Balance { get; set;}
-
-    //complete the constructor
-    public User(string saccnumber, double dbalance)
-    {
-        this.Balance = dbalance;                              //REVIEW - init Property: "sAccNumber" und übergeben es an den Konstruktor
-        this.sAccNumber = saccnumber;                        //REVIEW - init Property: "Balance" und übergeben es an den Konstruktor
     }
-    public void ShowDetails()
-    {
-            Console.WriteLine("Account N: " + sAccNumber);
-            Console.WriteLine("Balance: " + Balance);
+}
+
+//NOTE - class Animal
+class Animal
+{
+    public Animal() {
+        Console.WriteLine("Animal created");
+    }
+    ~Animal() {
+        Console.WriteLine("Animal deleted");
+    }
+}
+
+
+//NOTE - SubClass Dog
+class Dog: Animal
+{
+    public Dog() {
+        Console.WriteLine("Dog created");
+    }
+
+    ~Dog() {
+        Console.WriteLine("Dog deleted");
     }
 }
