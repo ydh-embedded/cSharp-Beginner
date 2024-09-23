@@ -1,5 +1,14 @@
-﻿namespace _17_0_Polymorphismus;
+﻿namespace _19_2_Interfaces_stnd_Implementierung;
 
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+//REVIEW - class Program
 class Program
 {
     static void Main(string[] args)
@@ -48,73 +57,53 @@ class Program
 
             **************************************************************************
 
-                Polymorphismus - Draw Methode
+                Interfaces - I_Shape
+                
+                Standardimplementierung 
 
-                Das Wort Polymorphismus bedeutet viele Formen haben.
-                Typischerweise tritt Polymorphismus auf,
-                wenn es eine Hierarchie von Klassen gibt und
-                sie durch Vererbung von einer gemeinsamen Basisklasse verwandt sind.
+                Eine Standardimplementierung in Schnittstellen ermöglicht
+                die Implementierung jeder Methode.
+                Dies ist nützlich, wenn es notwendig ist,
+                eine einheitliche Implementierung für gemeinsame
+                Funktionen bereitzustellen.
 
-                Polymorphismus bedeutet, dass ein Aufruf einer Mitgliedsmethode
-                je nach dem Typ des Objekts, das die Methode aufruft,
-                eine andere Implementierung ausgeführt wird. 
-
-                Einfach ausgedrückt bedeutet Polymorphie,
-                dass eine einzige Methode eine Reihe von
-                verschiedenen Implementierungen haben kann.
-
-                Wie Sie sehen können,
-                hat jedes Objekt seine eigene Draw Methode aufgerufen,
-                dank Polymorphie.
-
-
+                Nehmen wir an, wir müssen neue gemeinsame Funktionen zu
+                unserer bereits vorhandenen Schnittstelle hinzufügen,
+                die von vielen Klassen implementiert wird.
+                Ohne Standardimplementierung (vor C# 8)
+                würde diese Operation Fehler erzeugen,
+                da die von uns hinzugefügte Methode nicht in den Klassen implementiert
+                ist und wir die gleiche Operation in jeder Klasse
+                einzeln implementieren müssten. Die Standardimplementierung in
+                der Schnittstelle löst dieses Problem.
 
             **************************************************************************");
 
-            Shape s= new Shape();
-            s.Draw();
 
-            Shape c = new Circle();
+            I_Shape c = new Circle();
+
             c.Draw();
-
-            Shape r = new Rectangle();
-            r.Draw();
-    }
-}
-
-
-//REVIEW - Shape
-class Shape
-{
-    public virtual void Draw()
-    {
-        Console.WriteLine("Base Draw");
+            c.Finish();
     }
 }
 
 
 
-
-
-//REVIEW - Circle
-class Circle : Shape
+//REVIEW - Interface I_Shape
+public interface I_Shape
 {
-    public override void Draw()
+    void Draw();
+    void Finish(){
+        Console.WriteLine("Done!");
+    }
+}
+
+
+//REVIEW - abgeleitete classe circle
+class Circle : I_Shape
+{
+    public void Draw()
     {
-        // draw a circle...
         Console.WriteLine("Circle Draw");
-    }
-}
-
-
-
-
-
-//REVIEW - Rectangle
-class Rectangle : Shape
-{
-    public override void Draw() {
-        // draw a rectangle...
-        Console.WriteLine("Rect Draw");
     }
 }

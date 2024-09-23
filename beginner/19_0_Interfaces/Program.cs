@@ -1,4 +1,4 @@
-﻿namespace _17_0_Polymorphismus;
+﻿namespace _19_0_Interfaces;
 
 class Program
 {
@@ -48,73 +48,52 @@ class Program
 
             **************************************************************************
 
-                Polymorphismus - Draw Methode
+                Interfaces - IShape
 
-                Das Wort Polymorphismus bedeutet viele Formen haben.
-                Typischerweise tritt Polymorphismus auf,
-                wenn es eine Hierarchie von Klassen gibt und
-                sie durch Vererbung von einer gemeinsamen Basisklasse verwandt sind.
+                Ein Interface ist eine völlig abstrakte Klasse,
+                die nur abstrakte Mitglieder enthält.
 
-                Polymorphismus bedeutet, dass ein Aufruf einer Mitgliedsmethode
-                je nach dem Typ des Objekts, das die Methode aufruft,
-                eine andere Implementierung ausgeführt wird. 
+                Es wird mit dem Schlüsselwort interface deklariert: 
+                public interface IShape
+                {
+                        void Draw();
+                }
 
-                Einfach ausgedrückt bedeutet Polymorphie,
-                dass eine einzige Methode eine Reihe von
-                verschiedenen Implementierungen haben kann.
+                Alle Mitglieder des Interfaces sind standardmäßig abstrakt,
+                daher besteht keine Notwendigkeit,
+                das Schlüsselwort abstrakt zu verwenden.
 
-                Wie Sie sehen können,
-                hat jedes Objekt seine eigene Draw Methode aufgerufen,
-                dank Polymorphie.
+                Schnittstellen können öffentliche (standardmäßig),
+                private und geschützte Mitglieder haben.
 
+
+                Info:
+
+                Es ist üblich, den Großbuchstaben I als Anfangsbuchstaben
+                für einen Interface-Namen zu verwenden.
+
+                Interfaces können Eigenschaften, Methoden usw. enthalten,
+                dürfen jedoch keine Felder (Variablen) enthalten.
+
+                
+                Wenn eine Klasse eine Schnittstelle implementiert,
+                muss sie auch alle ihre Methoden implementieren oder
+                definieren.
+
+                Der Begriff Implementierung einer Schnittstelle wird
+                verwendet (im Gegensatz zum Begriff Vererbung von)
+                um den Prozess der Erstellung einer Klasse basierend
+                auf einer Schnittstelle zu beschreiben.
+                Die Schnittstelle beschreibt lediglich,
+                was eine Klasse tun sollte. Die Klasse,
+                die die Schnittstelle implementiert, muss definieren,
+                wie die Verhaltensweisen erreicht werden sollen.
+
+                Die Syntax zur Implementierung einer Schnittstelle ist
+                die gleiche wie die zur Ableitung einer Klasse: 
 
 
             **************************************************************************");
 
-            Shape s= new Shape();
-            s.Draw();
-
-            Shape c = new Circle();
-            c.Draw();
-
-            Shape r = new Rectangle();
-            r.Draw();
-    }
-}
-
-
-//REVIEW - Shape
-class Shape
-{
-    public virtual void Draw()
-    {
-        Console.WriteLine("Base Draw");
-    }
-}
-
-
-
-
-
-//REVIEW - Circle
-class Circle : Shape
-{
-    public override void Draw()
-    {
-        // draw a circle...
-        Console.WriteLine("Circle Draw");
-    }
-}
-
-
-
-
-
-//REVIEW - Rectangle
-class Rectangle : Shape
-{
-    public override void Draw() {
-        // draw a rectangle...
-        Console.WriteLine("Rect Draw");
     }
 }

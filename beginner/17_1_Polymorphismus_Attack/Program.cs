@@ -1,4 +1,4 @@
-﻿namespace _17_0_Polymorphismus;
+﻿namespace _17_1_Polymorphismus_Attack;
 
 class Program
 {
@@ -50,71 +50,75 @@ class Program
 
                 Polymorphismus - Draw Methode
 
-                Das Wort Polymorphismus bedeutet viele Formen haben.
-                Typischerweise tritt Polymorphismus auf,
-                wenn es eine Hierarchie von Klassen gibt und
-                sie durch Vererbung von einer gemeinsamen Basisklasse verwandt sind.
+                In einem rundenbasierten Strategiespiel kann jede Einheit
+                angreifen.
 
-                Polymorphismus bedeutet, dass ein Aufruf einer Mitgliedsmethode
-                je nach dem Typ des Objekts, das die Methode aufruft,
-                eine andere Implementierung ausgeführt wird. 
+                Die Standardeinheit greift mit einem Schwert an.
+                Aber es gibt noch zwei weitere Arten von Einheiten - Musketiere
+                und Magier, die auf ihre eigene Weise angreifen.
 
-                Einfach ausgedrückt bedeutet Polymorphie,
-                dass eine einzige Methode eine Reihe von
-                verschiedenen Implementierungen haben kann.
+                Das Programm, das Sie erhalten haben,
+                deklariert eine Unit-Klasse, die eine Methode Attack() hat.
+                Sie gibt Using sword! aus.
 
-                Wie Sie sehen können,
-                hat jedes Objekt seine eigene Draw Methode aufgerufen,
-                dank Polymorphie.
+                Leiten Sie die Klassen Musketeer und Magician von der Unit-Klasse
+                ab und überschreiben Sie deren Attack()-Methode,
+                
+                um die entsprechenden Meldungen beim Angriff auszugeben:
+
+                Musketeer => Using musket!
+                Magician => Using magic!
+
+                Info:
+                Vergessen Sie nicht das virtual Schlüsselwort,
+                welches das Überschreiben der Methode in abgeleiteten Klassen ermöglicht.
 
 
 
             **************************************************************************");
 
-            Shape s= new Shape();
-            s.Draw();
 
-            Shape c = new Circle();
-            c.Draw();
+            Unit unit1 = new Unit();
+            Unit musketeer = new Musketeer();
+            Unit magician = new Magician();
 
-            Shape r = new Rectangle();
-            r.Draw();
+            unit1.Attack();
+            musketeer.Attack();
+            magician.Attack();
     }
 }
 
 
-//REVIEW - Shape
-class Shape
+//REVIEW - class Unit
+class Unit
 {
-    public virtual void Draw()
+    public virtual void Attack()
     {
-        Console.WriteLine("Base Draw");
+        Console.WriteLine("Using sword!");
     }
+}
+
+
+
+//REVIEW - class Musketeer
+
+class Musketeer : Unit
+{
+        public override void Attack()
+        {
+            Console.WriteLine("Using musket!");
+        }
 }
 
 
 
 
 
-//REVIEW - Circle
-class Circle : Shape
+//REVIEW - class Magician
+class Magician : Unit
 {
-    public override void Draw()
-    {
-        // draw a circle...
-        Console.WriteLine("Circle Draw");
-    }
-}
-
-
-
-
-
-//REVIEW - Rectangle
-class Rectangle : Shape
-{
-    public override void Draw() {
-        // draw a rectangle...
-        Console.WriteLine("Rect Draw");
-    }
+        public override void Attack()
+        {
+            System.Console.WriteLine("Using magic!");
+        }
 }
