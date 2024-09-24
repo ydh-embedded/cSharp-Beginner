@@ -104,7 +104,11 @@ class Program
                     continue;
                 }
                 
-                int iLength , iWidth , iHeight ;        //SECTION - We declair the var outside of the switch for better maintain and the method volume and Perimeter can call the values from outs
+                //SECTION - We declair the var outside of the switch for better maintain and the method volume and Perimeter can call the values from outside
+                                
+                int iLength , iWidth , iHeight ;        
+
+
                 switch (iChoice)
                 {
                     
@@ -133,7 +137,7 @@ class Program
 
                     case 3:
                     
-                            //NOTE - same code from upper with calc in cm
+                            //NOTE - same code from upper with calc in m
 
                     default:
                             
