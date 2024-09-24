@@ -87,10 +87,35 @@ class Program
                 Einige Beispiele für die Verwendung von Enums
                 sind Monatsnamen, Wochentage, Karten in einem Deck, etc.
 
+                
+                Enums werden oft mit switch Anweisungen verwendet.
+
+
 
                 
 
             **************************************************************************");
 
+
+        //REVIEW - enum TrafficLights
+        enum TrafficLights { Green, Red, Yellow };
+
+
+
+        static void Main(string[] args)
+        {
+            TrafficLights x = TrafficLights.Red;
+            switch (x) {
+                case TrafficLights.Green:
+                    Console.WriteLine("Go!");
+                    break;
+                case TrafficLights.Red:
+                    Console.WriteLine("Stop!");
+                    break;
+                case TrafficLights.Yellow:
+                    Console.WriteLine("Caution!");
+                    break;
+            }
+        }
     }
 }
