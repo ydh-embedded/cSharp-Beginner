@@ -1,8 +1,9 @@
-﻿namespace _21_0_NameSpace;
+﻿namespace _21_1_STRUCT;
 
+//REVIEW - class Program
 class Program
 {
-    static void Main(string[] args)
+        static void Main(string[] args)
     {
             Console.WriteLine(@"
 
@@ -48,38 +49,83 @@ class Program
 
             **************************************************************************
 
-                Namespaces 
+                Structs 
+
+                Ein struct-Typ ist ein Werttyp,
+                der typischerweise verwendet wird,
+                um kleine Gruppen verwandter Variablen zu verkapseln,
+                wie beispielsweise die Koordinaten eines Rechtecks oder
+                die Eigenschaften eines Artikels in einem Inventar.
+                Das folgende Beispiel zeigt eine einfache Struct-Deklaration: 
+
+                struct Book
+                {
+                    public string title;  
+                    public double price;
+                    public string author;
+                }
+
+                Structs teilen den größten Teil der Syntax mit Klassen,
+                sind aber eingeschränkter als Klassen.
+
+                Im Gegensatz zu Klassen können Structs ohne Verwendung
+                eines neuen Operators instanziiert werden.
+
+                Info: 
+
+                Structs unterstützen keine Vererbung und
+                können keine virtuellen Methoden enthalten.
+
                 
-                Wir beachten, dass unser gesamtes Programm in einem Namespace liegt.
-                Also, was sind Namespaces?
+                Structs vs Klassen 
 
-                Namespaces deklarieren einen Bereich,
-                der eine Reihe verwandter Objekte enthält.
-                Sie können ein Namespace verwenden,
-                um Code-Elemente zu organisieren.
-                Sie können Ihre eigenen Namespaces definieren und
-                sie in Ihrem Programm verwenden.
+                Im Allgemeinen werden Klassen verwendet,
+                um komplexeres Verhalten oder Daten zu modellieren,
+                die nach der Erstellung eines Klassenobjekts geändert werden sollen.
+                Strukturen sind am besten für kleine Datenstrukturen geeignet,
+                die hauptsächlich Daten enthalten,
+                die nach der Erstellung der Struktur nicht geändert werden sollen.
+                Überlegen Sie, eine Struktur anstelle einer Klasse zu definieren,
+                wenn Sie versuchen, eine einfache Menge von Daten darzustellen.
 
-                Das using Schlüsselwort gibt an,
-                dass das Programm einen bestimmten Namespace verwendet.
+                Alle Standard-C#-Typen (int, double, bool, char, usw.)
+                sind tatsächlich Strukturen.
 
-                Zum Beispiel verwenden wir in unseren Programmen den System Namespace,
-                in dem die Klasse Console definiert ist.
 
-                Info:
 
-                Das .NET Framework verwendet Namensräume,
-                um seine vielen Klassen zu organisieren.
-                System ist ein Beispiel für einen .NET Framework-Namensraum.
-
-                Das Deklarieren Ihrer eigenen Namensräume kann Ihnen helfen,
-                Ihre Klassen- und Methodennamen in größeren Programmierprojekten
-                zu gruppieren.
 
                 
 
             **************************************************************************");
 
+            Book b;
+            b.title  =  "Test";
+            b.price  =    5.99;
+            b.author = "David";
+            
+            Console.WriteLine(b.title);
 
+            Point p = new Point(10, 15);
+            Console.WriteLine(p.x);
+    }
+}
+
+//REVIEW - Struct Book
+struct Book
+{
+   public string title;  
+   public double price;
+   public string author;
+}
+
+//REVIEW - Struct Point
+struct Point
+{
+    public int x;
+    public int y;
+    public Point(int x, int y)
+    {
+                this.x = x;
+                this.y = y;
     }
 }

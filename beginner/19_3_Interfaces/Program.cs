@@ -1,5 +1,6 @@
-﻿namespace _21_0_NameSpace;
+﻿namespace _19_3_Interfaces;
 
+//REVIEW - class Program
 class Program
 {
     static void Main(string[] args)
@@ -48,38 +49,79 @@ class Program
 
             **************************************************************************
 
-                Namespaces 
+                Interfaces - Zeichenanwendung 
+
+                Sie erstellen eine Zeichenanwendung und haben derzeit
+                nur 1 Werkzeug - einen Bleistift.
+                Sie möchten Pinsel und Sprühdose zum
+                Zeichenwerkzeug hinzufügen.
+
+                Das Ihnen gegebene Programm deklariert
+                eine IDraw Schnittstelle mit der StartDraw() Methode
+                und die Klasse Draw,
                 
-                Wir beachten, dass unser gesamtes Programm in einem Namespace liegt.
-                Also, was sind Namespaces?
+                die das Zeichnen mit dem Bleistift durch Implementierung
+                der IDraw-Schnittstelle durchführt. Es gibt Using pencil aus.
 
-                Namespaces deklarieren einen Bereich,
-                der eine Reihe verwandter Objekte enthält.
-                Sie können ein Namespace verwenden,
-                um Code-Elemente zu organisieren.
-                Sie können Ihre eigenen Namespaces definieren und
-                sie in Ihrem Programm verwenden.
+                Vervollständigen Sie die gegebenen Brush und Spray Klassen durch
 
-                Das using Schlüsselwort gibt an,
-                dass das Programm einen bestimmten Namespace verwendet.
+                - Vererbung von der Klasse Draw
+                - Implementierung der StartDraw() Methode für jedes Werkzeug,
+                   um auszugeben
 
-                Zum Beispiel verwenden wir in unseren Programmen den System Namespace,
-                in dem die Klasse Console definiert ist.
+                Using brush für Brush, oder
+                Using spray für Spray.
 
-                Info:
+                Die Draw-Objekte und ihre Methodenaufrufe
+                werden in Main() bereitgestellt.
 
-                Das .NET Framework verwendet Namensräume,
-                um seine vielen Klassen zu organisieren.
-                System ist ein Beispiel für einen .NET Framework-Namensraum.
-
-                Das Deklarieren Ihrer eigenen Namensräume kann Ihnen helfen,
-                Ihre Klassen- und Methodennamen in größeren Programmierprojekten
-                zu gruppieren.
-
-                
+                Tipp: das Keyword override nicht vergessen
 
             **************************************************************************");
 
 
+            Draw pencil = new Draw();
+            Draw brush = new Brush();
+            Draw spray = new Spray();
+
+            pencil.StartDraw();
+            brush.StartDraw();
+            spray.StartDraw();
     }
 }
+
+
+//REVIEW - Interface Draw
+public interface I_Draw
+{
+    void StartDraw();                   //SECTION - defined with the method StartDraw()
+}
+
+//REVIEW - SubClass   Draw
+class Draw : I_Draw
+{
+    public virtual void StartDraw()
+    {
+        System.Console.WriteLine("Using pencil");
+    }
+}
+
+//REVIEW - class Spray
+class Spray : Draw
+{
+    public override void StartDraw()
+    {
+        System.Console.WriteLine("Using Spray");
+    }
+}
+
+
+//REVIEW - class Brush
+class Brush : Draw
+{
+    public override void StartDraw()
+    {
+        System.Console.WriteLine("Using Brush");
+    }
+}
+
