@@ -1,6 +1,5 @@
 ﻿namespace _21_1_STRUCT;
 
-
 //REVIEW - class Program
 class Program
 {
@@ -76,6 +75,23 @@ class Program
 
                 Structs unterstützen keine Vererbung und
                 können keine virtuellen Methoden enthalten.
+
+                
+                Structs vs Klassen 
+
+                Im Allgemeinen werden Klassen verwendet,
+                um komplexeres Verhalten oder Daten zu modellieren,
+                die nach der Erstellung eines Klassenobjekts geändert werden sollen.
+                Strukturen sind am besten für kleine Datenstrukturen geeignet,
+                die hauptsächlich Daten enthalten,
+                die nach der Erstellung der Struktur nicht geändert werden sollen.
+                Überlegen Sie, eine Struktur anstelle einer Klasse zu definieren,
+                wenn Sie versuchen, eine einfache Menge von Daten darzustellen.
+
+                Alle Standard-C#-Typen (int, double, bool, char, usw.)
+                sind tatsächlich Strukturen.
+
+
 
 
                 
