@@ -79,9 +79,83 @@ class Program
                 jedoch alle möglichen Exceptions behandeln.
 
 
+                C# bietet einen flexiblen Mechanismus namens try-catch
+                Anweisung zur Behandlung von Ausnahmen,
+                damit ein Programm bei einem Fehler nicht abstürzt.
+
+                Die try und catch Blöcke werden ähnlich wie folgt verwendet: 
+
+                Der Code, der eine Ausnahme erzeugen könnte, wird im try Block platziert.
+                Wenn eine Ausnahme auftritt, wird der catch-Block ausgeführt,
+                ohne das Programm zu stoppen.
+
+                Die Art der Ausnahme, die Sie abfangen möchten,
+                erscheint in Klammern nach dem Schlüsselwort catch.
+
+                Wir verwenden den allgemeinen Exception-Typ,
+                um alle Arten von Ausnahmen zu verarbeiten.
+                Wir können auch das Ausnahmeobjekt e verwenden,
+                um auf die Details der Ausnahme zuzugreifen,
+                wie zum Beispiel die ursprüngliche Fehlermeldung (e.Message):
+
+
                 
 
             **************************************************************************");
+
+
+                    try
+                     {
+                        int[] arr = new int[] { 4, 5, 8 };
+                        Console.Write(arr[8]);
+                     } catch(Exception e) {
+                        Console.WriteLine(An error occurred);
+                    }
+
+            Console.WriteLine(@"
+
+            **************************************************************************
+
+                Multi Exception Handling
+
+
+
+
+                
+
+                Info:
+
+                Die folgenden Ausnahmetypen
+                sind einige der am häufigsten verwendeten:
+                
+                FileNotFoundException,
+                FormatException,
+                IndexOutOfRangeException,
+                InvalidOperationException,
+                OutOfMemoryException.
+
+                
+
+            **************************************************************************");
+                
+                int x, y;
+
+                
+                    try {
+                      x = Convert.ToInt32(Console.Read());
+                      y = Convert.ToInt32(Console.Read());
+                      Console.WriteLine(x / y);
+                    }
+                     catch (DivideByZeroException e) {
+                      Console.WriteLine("Cannot divide by 0");
+                    }
+                     catch(Exception e) {
+                      Console.WriteLine("An error occurred");
+                    }
+
+
+
+
 
     }
 }
