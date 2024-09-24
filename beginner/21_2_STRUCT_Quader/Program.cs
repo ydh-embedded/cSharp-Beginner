@@ -89,14 +89,68 @@ class Program
 
             **************************************************************************");
 
-            int length = Convert.ToInt32(Console.ReadLine());
-            int width  = Convert.ToInt32(Console.ReadLine());
-            int height = Convert.ToInt32(Console.ReadLine());
+            int iChoice;
+            do
+            {
+                System.Console.WriteLine("Enter the Units of Measurement: ");
+                System.Console.WriteLine("1. mm");
+                // System.Console.WriteLine("2. cm");
+                // System.Console.WriteLine("3. m");
+                System.Console.WriteLine("Choose an Option: ");
 
-            Cuboid cuboid = new Cuboid(length, width, height);
+                if (!int.TryParse(System.Console.ReadLine(), out iChoice) || iChoice < 1 || iChoice > 3 )  
+                {
+                    System.Console.WriteLine("Invalid Input");
+                    continue;
+                }
+                
+                int iLength , iWidth , iHeight ;        //SECTION - We declair the var outside of the switch for better maintain and the method volume and Perimeter can call the values from outs
+                switch (iChoice)
+                {
+                    
+                    case 1:
 
-            Console.WriteLine("Volume: " + cuboid.Volume());
-            Console.WriteLine("Perimeter: " + cuboid.Perimeter());
+                            System.Console.WriteLine("Enter the Lenght of Cubi in mm: ");
+                            iLength = Convert.ToInt32(Console.ReadLine());
+
+                            System.Console.WriteLine("Enter the Widht of Cubi in mm: ");
+                            iWidth  = Convert.ToInt32(Console.ReadLine());
+
+                            System.Console.WriteLine("Enter the Height of Cubi in mm: ");
+                            iHeight = Convert.ToInt32(Console.ReadLine());
+                    
+                            Cuboid iCuboid = new Cuboid(iLength, iWidth, iHeight);
+
+                            Console.WriteLine("Volume: " + iCuboid.Volume() + " mm³");
+                            Console.WriteLine("Perimeter: " + iCuboid.Perimeter() + " mm");
+
+
+                            break;
+
+                    case 2:
+
+                            //NOTE - same code from upper with calc in cm
+
+                    case 3:
+                    
+                            //NOTE - same code from upper with calc in cm
+
+                    default:
+                            
+                            System.Console.WriteLine("Invalid Input");      
+                            
+                            break;
+
+                }
+            } while (true);
+
+
+
+
+
+
+
+
     }
 }
 
@@ -108,18 +162,23 @@ struct Cuboid
     public int width;
     public int height;
 
-    
-    //create a constructor
-    
-    
-    //complete this method
-    public int Volume()
+
+                                                            //SECTION - create a constructor
+    public Cuboid ( int length , int width , int height)
     {
-        
+        this.length = length;
+        this.width  =  width;
+        this.height = height;
     }
-    //complete this method
-    public int Perimeter()
-    {
         
+                                                            //SECTION - complete this method
+    public int Volume( )
+    {
+        return length * width * height;                   //SECTION - the Volume method is using the instance fields length, width, and height to calculate the volume. The result is returned directly, without any intermediate variables or parameters.
+    }
+                                                            //SECTION - complete this method
+    public int Perimeter( )
+    {
+        return 4 * ( length + width + height );
     }
 }
