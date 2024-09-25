@@ -95,7 +95,7 @@ class Program
                 }
                 else
                 {
-                    Console.WriteLine("At least 1 shelf");
+                    Console.WriteLine("At least 1 shelf" + message);
                 }
 
             }
