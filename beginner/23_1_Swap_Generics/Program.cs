@@ -1,4 +1,4 @@
-﻿namespace _23_0_Swap_Generics;
+﻿namespace _23_1_Swap_Generics;
 
 //REVIEW - class Program
 class Program
