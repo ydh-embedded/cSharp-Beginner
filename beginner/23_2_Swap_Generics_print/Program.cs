@@ -56,7 +56,10 @@ class Program
 
         System.Console.WriteLine(@"
         
-            
+        - wir erstellen eine statische Print Methode um diese aufrufen zu können ohne eine Instanz der Printer klasse erstellen zu müssen
+        - Die Print Methode kann jeden Typ annehmen  und ist damit nicht auf die Daten der Instanz der Printer Klasse angewiesen
+        - In diesem Fall erscheint es sinnvoll, die Methode Print statisch zu machen, da es sich um eine Dienstprogramm-Methode handelt,
+           die zum Drucken beliebiger Datentypen verwendet werden kann.
 
         ");
 
@@ -64,8 +67,8 @@ class Program
 //REVIEW - class Printer
 class Printer
 {
-    public static void Print<T>( T value)       //SECTION - wir erstellen eine statische Methode um diese aufrufen zu können ohne eine Instanz der Printer klasse erstellen zu müssen
-    {                                           //SECTION - Die Print Methode kann jeden Typ annehmen  und ist damit nicht auf die Daten der Instanz der Printer Klasse angewiesen
+    public static void Print<T>( T value)       
+    {                                           
         System.Console.WriteLine(value);
     }
 }
