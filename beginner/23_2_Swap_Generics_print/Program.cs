@@ -60,6 +60,26 @@ class Program
         - Die Print Methode kann jeden Typ annehmen  und ist damit nicht auf die Daten der Instanz der Printer Klasse angewiesen
         - In diesem Fall erscheint es sinnvoll, die Methode Print statisch zu machen, da es sich um eine Dienstprogramm-Methode handelt,
            die zum Drucken beliebiger Datentypen verwendet werden kann.
+        - Beachten Wir, dass es kein Objekt der Printer-Klasse gibt, sollte daher die generische Methode statisch sein.
+
+        ");
+
+
+        System.Console.WriteLine(@"
+        
+        - Unsere Swap-Methode funktioniert nur für Integer-Parameter.
+        Wenn wir sie für andere Typen verwenden möchten,
+        zum Beispiel für Doubles oder Strings,
+        müssen wir sie für alle Typen überladen,
+        mit denen wir sie verwenden möchten.
+        
+        Wichtig:
+        
+        Neben vielen Code-Wiederholungen wird es schwieriger,
+        den Code zu verwalten,
+        da Änderungen in einer Methode Änderungen in allen überladenen Methoden bedeuten.
+
+        Generics bieten einen flexiblen Mechanismus zur Definition eines generischen Typs.
 
         ");
 
@@ -69,6 +89,6 @@ class Printer
 {
     public static void Print<T>( T value)       
     {                                           
-        System.Console.WriteLine(value);
+        System.Console.WriteLine("Showing " + value);
     }
 }
