@@ -74,19 +74,19 @@ class Program
         // Stack<int> intStack = new Stack<int>();
 
 
-            //SECTION - string Object elemn1 (stack with Elements of Names)
-            Elems<string> elems1 = new Elems<string>();
-            elems1.Add("John", "Tamara", "David");
+            //SECTION - string Object elemn1 (stack with iElements of Names)
+            Elems<string> sElems_1 = new Elems<string>();
+            sElems_1.Add("John", "Tamara", "David");
 
-            elems1.Show();
+            sElems_1.Show();
 
             Console.WriteLine();
 
-            //SECTION - string Object elemn2 (stack with Elements of Numbers)
-            Elems<int> elems2 = new Elems<int>();
-            elems2.Add(5, 14, 13);
+            //SECTION - string Object elemn2 (stack with iElements of Numbers)
+            Elems<int> sElems_2 = new Elems<int>();
+            sElems_2.Add(5, 14, 13);
 
-            elems2.Show();
+            sElems_2.Show();
 
     
     }
@@ -96,15 +96,15 @@ class Program
 public class Stack<T>
 {
     //SECTION - var Initialisierung
-    int index = 0;
-    T[] innerArray = new T[100] ;
+    private T[] innerArray = new T[100] ;
+    private int index = 0;
 
 
     //SECTION - Push to stack
     public void Push (T item) {innerArray[index++] = item;}
 
     //SECTION - PoP from stack 
-    public T   Pop (T item) {return innerArray[--index] ;}
+    public T   Pop ( ) {return innerArray[--index] ;}
 
     //SECTION - Get from stack
     public T Get (int k ) {return innerArray[k];}
@@ -113,19 +113,27 @@ public class Stack<T>
 
 
 //REVIEW - class Elems
-class Elems
+public class Elems <T>
 {
+    public int[] iElements = new int[3];
+
+    private T[] iElements;
+
+    //SECTION - Constructor Elemns  Constructors are used to set the initial state of an object when it is created
+    public Elems(int size)
+    {
+        iElements = new T[size];
+    }
 
 
-
-    public int[] elements = new int[3];
 
     //SECTION - Method Add 
-    public void Add(int elem1, int elem2, int elem3)
+    public void Add(params T[] elements)
     {
-        elements[0] = elem1;
-        elements[1] = elem2;
-        elements[2] = elem3;
+        for (int i = 0; i < elements.Length; i++)
+        {
+            iElements[i] = elements[i];
+        }
     }
 
 
@@ -133,7 +141,7 @@ class Elems
     //SECTION - Method Show
     public void Show()
     {
-        foreach (int item in elements)
+        foreach (T item in iElements)
         {
             Console.Write(item + " ");
         }
