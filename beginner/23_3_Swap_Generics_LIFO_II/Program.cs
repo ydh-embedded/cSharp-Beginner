@@ -113,7 +113,7 @@ public class Stack<T>
 
 
 //REVIEW - class Elems
-public class Elems <T>
+public class Elems <T>      //SECTION - In this specific case, the constructor public Elems(int size) is used to initialize the Elems object with a specified size, which is then used to create an array of type T with that size.
 {
     public int[] iElements = new int[3];
 
