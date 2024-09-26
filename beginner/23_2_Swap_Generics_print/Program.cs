@@ -38,23 +38,7 @@ class Program
 
         ");
 
-            //SECTION - Variables declaration         
-            string    text = Console.ReadLine();
-            int     intNum = Convert.ToInt32(Console.ReadLine());
-            double doubNum = Convert.ToDouble(Console.ReadLine());
-
-            //SECTION - Printer
-            Printer.Print(text);
-            Printer.Print(intNum);
-            Printer.Print(doubNum);
-    
-
-
-
-    }
-}
-
-        System.Console.WriteLine(@"
+        Console.WriteLine(@"
         
         - wir erstellen eine statische Print Methode um diese aufrufen zu können ohne eine Instanz der Printer klasse erstellen zu müssen
         - Die Print Methode kann jeden Typ annehmen  und ist damit nicht auf die Daten der Instanz der Printer Klasse angewiesen
@@ -64,8 +48,7 @@ class Program
 
         ");
 
-
-        System.Console.WriteLine(@"
+        Console.WriteLine(@"
         
         - Unsere Swap-Methode funktioniert nur für Integer-Parameter.
         Wenn wir sie für andere Typen verwenden möchten,
@@ -82,6 +65,24 @@ class Program
         Generics bieten einen flexiblen Mechanismus zur Definition eines generischen Typs.
 
         ");
+
+
+
+            //SECTION - Variables declaration         
+            string    text = Console.ReadLine();
+            int     intNum = Convert.ToInt32(Console.ReadLine());
+            double doubNum = Convert.ToDouble(Console.ReadLine());
+
+            //SECTION - Printer
+            Printer.Print(text);
+            Printer.Print(intNum);
+            Printer.Print(doubNum);
+
+
+
+    }
+}
+
 
 
 //REVIEW - class Printer
