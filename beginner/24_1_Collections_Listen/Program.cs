@@ -7,39 +7,6 @@ class Program
 {
     static void Main(string[] args)
     {
-
-        Console.WriteLine(@"
-        
-        Collections - List<T> 
-
-
-        Ein Liste ist ähnlich wie ein Array,
-        aber die Elemente in einer Liste können dynamisch
-        eingefügt und entfernt werden.
-
-        Die C# generische Sammlung List<T> Klasse erfordert,
-        dass alle Elemente vom gleichen Typ T sind.
-
-        List<T> Eigenschaften und Methoden beinhalten:
-
-        Count Eine Eigenschaft,
-        die die Anzahl der Elemente in der Liste erhält.
-
-        Item[int i] Holt oder setzt das Element in der Liste
-        am Index i. Item ist der Indexer und wird nicht benötigt,
-        
-        wenn auf ein Element zugegriffen wird.
-        Sie müssen nur die Klammern [] und
-        den Indexwert in den Klammern verwenden.
-
-            - Add(T t) Fügt ein Element t am Ende der Liste hinzu.
-            - RemoveAt(int index) Entfernt das Element an der angegebenen Position (Index) aus der Liste.
-            - Sort() Sortiert die Elemente in der Liste.
-        
-        Jetzt probieren wir List<T> aus:
-
-        
-        ");
         // List<T>
         Console.WriteLine("List<T>:");
         List<string> list = new List<string>();
