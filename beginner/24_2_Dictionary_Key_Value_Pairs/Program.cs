@@ -1,4 +1,4 @@
-﻿namespace _25_0_Dictionary;
+﻿namespace _24_2_Dictionary_Key_Value_Pairs;
 
 class Program
 {
