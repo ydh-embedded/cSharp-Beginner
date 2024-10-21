@@ -1,31 +1,56 @@
-﻿namespace _24_3_coffee_time;
+﻿using System;
 
-class Program
+using System.Collections.Generic;
+using System.Globalization;
+
+namespace _24_3_coffee_time
 {
-    static void Main(string[] args)
+    class Program
     {
-
+        static void Main(string[] args)
+        {
+            // Print Lesson Header
             PrintHeader();
-            
+                
+            // Init Input
+            Console.Write("Enter discount percentage: ");
             int discount = Convert.ToInt32(Console.ReadLine());
 
-            Dictionary<string, double> coffee = new Dictionary<string, double>();
-            coffee.Add("Americano", 50);
-            coffee.Add("Latte", 70);
-            coffee.Add("Flat White", 60);
-            coffee.Add("Espresso", 60);
-            coffee.Add("Cappuccino", 80);
-            coffee.Add("Mocha", 90);
+            // Initialize Dictionary
+            Dictionary<string, double> coffee = new Dictionary<string, double>
+            {
+                { "Americano",      50 },
+                { "Latte",          70},
+                { "Flat White",     60},
+                { "Espresso",       60},
+                { "Cappuccino",     80},
+                { "Mocha",          90}
+            };
 
+            // Print discounted prices
+            foreach (var coffeeType in coffee.Keys)
+            {
+                double originalPrice = coffee[coffeeType];
+                double discountedPrice = originalPrice - (originalPrice * discount / 100);
+                
+                // Check if the discounted price is a whole number
+                if (discountedPrice % 1 == 0)
+                {
+                    // Print as integer
+                    Console.WriteLine($"{coffeeType}: {((int)discountedPrice)}"); // Cast to int
+                }
+                else
+                {
+                    // Print with 1 decimal place
+                    Console.WriteLine($"{coffeeType}: {discountedPrice.ToString("F1", CultureInfo.InvariantCulture)}");
+                }
+            }
+        }
 
-            //your code goes here
-    }
-
-
-    static void PrintHeader()
-    {
-        // Change color for header
-        Console.ForegroundColor = ConsoleColor.Cyan; 
+        static void PrintHeader()
+        {
+            // Change color for header
+            Console.ForegroundColor = ConsoleColor.Cyan; 
             Console.WriteLine(@"
 
             @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%###%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -102,31 +127,8 @@ class Program
                 Verwenden Sie coffee.Keys.ToArray() innerhalb der foreach-Schleife.
                 Achten Sie auf das Leerzeichen nach dem : in der Ausgabe.
                 
-
-            **************************************************************************");
-            Console.ResetColor();                                         // Reset to default color
-    }
-        
-    static void PrintDictionary(Dictionary<string, int> dictionary)
-    {
-        // Print header
-        Console.ForegroundColor = ConsoleColor.Cyan;                    // Change color for header
-        Console.WriteLine("Key\t\tValue");
-        Console.ResetColor();                                         // Reset to default color
-        
-        // Print Dashes
-        Console.ForegroundColor = ConsoleColor.Yellow;               // Change color for dashes
-        Console.WriteLine("---------------------");
-        Console.ResetColor();                                       // Reset to default color
-
-        // Print each key-value pair
-        foreach (var kvp in dictionary)
-        {
-            Console.WriteLine($"{kvp.Key}\t\t{kvp.Value}");
+            ");
+            Console.ResetColor(); // Reset to default color
         }
-
-        Console.ForegroundColor = ConsoleColor.Yellow;           // Change color for dashes
-        Console.WriteLine("---------------------");
-        Console.ResetColor();                                   // Reset to default color
     }
 }
