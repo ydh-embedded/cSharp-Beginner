@@ -109,23 +109,6 @@ class Program
 
             **************************************************************************");
 
-       // SECTION Stack
-        Stack<int> s = new Stack<int>();
-        s.Push(59);
-        s.Push(72);
-        s.Push(65);
-
-        // Print Stack
-        Console.WriteLine("=== Stack ===");
-        PrintStack(s);
-
-        Console.WriteLine("\nTop: " + s.Peek());  // 65
-        Console.WriteLine("Pop: " + s.Pop());  // 65
-
-        // Print Stack after Pop
-        Console.WriteLine("\n=== Stack After Pop ===");
-        PrintStack(s);
-
         // SECTION Queue
         Queue<int> q = new Queue<int>();
         q.Enqueue(5);
@@ -141,20 +124,6 @@ class Program
         // Print Queue after Dequeue
         Console.WriteLine("\n=== Queue After Dequeue ===");
         PrintQueue(q);
-    }
-
-
-
-    static void PrintStack(Stack<int> stack)
-    {
-        Console.WriteLine("Elements\tCount");
-        Console.WriteLine("----------------------");
-        foreach (int item in stack)
-        {
-            Console.WriteLine($"{item}\t\t{stack.Count}");
-        }
-        Console.WriteLine("----------------------");
-        Console.WriteLine("Total Count: " + stack.Count);
     }
 
 

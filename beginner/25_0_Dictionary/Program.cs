@@ -4,7 +4,32 @@ class Program
 {
     static void Main(string[] args)
     {
-                Console.WriteLine(@"
+        // Print Lesson Header
+        PrintHeader();
+        
+        // Initialize Dictionary
+        Dictionary<string, int> d = new Dictionary<string, int>();
+        d.Add("Uno", 1);
+        d.Add("One", 1);
+        d.Add("Dos", 2);
+        d.Add("Deux", 2);
+        
+        // Remove items from the dictionary
+        d.Remove("One"); // Remove key-value pair One, 1
+        d.Remove("Dos"); // Remove key-value pair Dos, 2
+
+        // Print Dictionary in Table Format
+        Console.WriteLine("=== Dictionary ===");
+        PrintDictionary(d);
+        Console.WriteLine("\nCount: {0}", d.Count); // Total count    
+		
+    }
+
+    static void PrintHeader()
+    {
+        // Change color for header
+        Console.ForegroundColor = ConsoleColor.Cyan; 
+            Console.WriteLine(@"
 
             @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%###%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
             @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%##*******##%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -48,7 +73,7 @@ class Program
 
             **************************************************************************
                 
-                Dictionary<U, V> 
+            Dictionary<U, V> 
  
             Ein Wörterbuch ist eine Sammlung von eindeutigen Schlüssel/Wert-Paaren,
             bei denen ein Schlüssel zum Zugriff auf den entsprechenden Wert verwendet wird.
@@ -60,7 +85,9 @@ class Program
             Doppelte Schlüssel sind nicht erlaubt, um sicherzustellen,
             dass jedes Schlüssel/Wert-Paar eindeutig ist.
 
-                Dictionary<K, V> Eigenschaften beinhalten:
+
+
+            Dictionary<K, V> Eigenschaften beinhalten:
 
             Count - Ruft die Anzahl der Schlüssel/Wert-Paare ab,
                     die im Wörterbuch enthalten sind.
@@ -74,33 +101,20 @@ class Program
                     enthaltenen Schlüssel enthält.
 
                 
-                Dictionary<K, V> Methoden beinhalten:
 
-Add(K key, V value) - Fügt das Schlüssel-, Wert-Paar zum Wörterbuch hinzu.
+            Dictionary<K, V> Methoden beinhalten:
 
-Remove(K key) - Entfernt das Schlüssel/Wert-Paar, das mit dem angegebenen Schlüssel aus dem Wörterbuch in Beziehung steht.
+            Add(K key, V value) - Fügt das Schlüssel-,
+                                    Wert-Paar zum Wörterbuch hinzu.
+            
+            Remove(K key) - Entfernt das Schlüssel/Wert-Paar,
+                            das mit dem angegebenen Schlüssel
+                            aus dem Wörterbuch in Beziehung steht.
                 
 
             **************************************************************************");
-
-        // Initialize Dictionary
-        Dictionary<string, int> d = new Dictionary<string, int>();
-        d.Add("Uno", 1);
-        d.Add("One", 1);
-        d.Add("Dos", 2);
-        d.Add("Deux", 2);
-        
-        // Remove items from the dictionary
-        d.Remove("One"); // Remove key-value pair One, 1
-        d.Remove("Dos"); // Remove key-value pair Dos, 2
-
-        // Print Dictionary in Table Format
-        Console.WriteLine("=== Dictionary ===");
-        PrintDictionary(d);
-        Console.WriteLine("\nCount: {0}", d.Count); // Total count    
-		
+            Console.ResetColor();                                         // Reset to default color
     }
-
         
     static void PrintDictionary(Dictionary<string, int> dictionary)
     {
